@@ -55,6 +55,8 @@ group :development, :test do
   gem 'rubocop-rails'
   gem 'simplecov'
   gem 'capybara'
+  gem 'cucumber'
+  gem 'cucumber-rails'
 end
 
 group :development do
