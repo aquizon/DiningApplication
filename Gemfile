@@ -56,7 +56,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'capybara'
   gem 'cucumber'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', require: false
 end
 
 group :development do
