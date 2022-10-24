@@ -1,0 +1,26 @@
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Served During</th>
+            <th>Ingredients</th>
+            <th>Calories</th>
+            <th>Allergens</th>
+            <th>Diet</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%@menus.each do |m|%>
+        <tr>
+            <td> <%= m.name%> </td>
+            <td> <%= m.description%> </td>
+            <td> <%= m.meal_of_day%> </td>
+            <td> <%= m.ingredients%> </td>
+            <td> <%= m.calories%> </td>
+            <td> <%= m.allergens%> </td>
+            <td> <%= m.diet%> </td>
+        </tr>
+        <%end%>
+    </tbody>
+</table>
