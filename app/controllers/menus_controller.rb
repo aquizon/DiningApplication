@@ -3,6 +3,10 @@ class MenusController < ApplicationController
         @menus = Menu.all.order(:meal_of_day)
       end
 
+    def show 
+        @menu = Menu.find(params[:id])
+    end
+
     def new 
         @menu = Menu.new
     end
@@ -14,7 +18,7 @@ class MenusController < ApplicationController
             redirect_to menus_path
         else
             flash[:warning] = "Menu Item could not be entered"
-            redirect_to new_book_path
+            redirect_to new_menu_path
         end
     end
 
