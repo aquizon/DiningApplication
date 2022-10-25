@@ -1,5 +1,5 @@
 class MenusController < ApplicationController
-    def menu_index
+    def index
         @menus = Menu.all.order(:meal_of_day)
       end
 
