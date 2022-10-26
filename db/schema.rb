@@ -14,6 +14,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_26_022709) do
   create_table "dininghalls", force: :cascade do |t|
     t.text "name"
     t.text "hours"
+    t.text "breakfast_hours"
+    t.text "lunch_hours"
+    t.text "dinner_hours"
+    t.time "time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

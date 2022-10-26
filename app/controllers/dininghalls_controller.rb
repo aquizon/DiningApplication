@@ -34,7 +34,7 @@ class DininghallsController < ApplicationController
     end
 private 
     def create_update_params
-        params.require(:dininghall).permit(:name, :hours)
+        params.require(:dininghall).permit(:name, :hours, :breakfast_hours, :lunch_hours, :dinner_hours, :time)
     end
 
 end
