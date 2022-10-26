@@ -10,11 +10,12 @@
     <tbody>
         <%@dininghalls.each do |dh|%>
         <tr>
-            <td> <%= "#{dh.name}"%> </td>
+            <td> <%= link_to "#{dh.name}", dininghall_path(dh.id)%> </td>
             <td> <%= dh.hours%> </td>
         </tr>
         <%end%>
     </tbody>
 </table>
+<%= link_to "New Dining Hall", new_dininghall_path%>
 <br>
 <div>
