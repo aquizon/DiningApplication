@@ -1,3 +1,5 @@
+<div><h1>Menu</h1></div>
+
 <table>
     <thead>
         <tr>
@@ -13,7 +15,7 @@
     <tbody>
         <%@menus.each do |m|%>
         <tr>
-            <td> <%= m.name%> </td>
+            <td> <%= link_to "#{m.name}", menu_path(m.id)%> </td>
             <td> <%= m.description%> </td>
             <td> <%= m.meal_of_day%> </td>
             <td> <%= m.ingredients%> </td>
@@ -24,3 +26,8 @@
         <%end%>
     </tbody>
 </table>
+<br>
+<div>
+<%= link_to "New Menu Item", new_menu_path%>
+<br> 
+</div>
