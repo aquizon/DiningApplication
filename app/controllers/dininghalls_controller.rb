@@ -30,7 +30,7 @@ class DininghallsController < ApplicationController
         @dininghall = Dininghall.find params[:id]
         @dininghall.update(create_update_params)
         flash[:notice] = "#{@dininghall.name} was successfully updated"
-        redirect_to menu_path(@dininghall)
+        redirect_to dininghall_path(@dininghall)
     end
 private 
     def create_update_params
