@@ -1,0 +1,20 @@
+<div><h1>Dining Halls</h1></div>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Hours</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%@dininghalls.each do |dh|%>
+        <tr>
+            <td> <%= "#{dh.name}"%> </td>
+            <td> <%= dh.hours%> </td>
+        </tr>
+        <%end%>
+    </tbody>
+</table>
+<br>
+<div>
