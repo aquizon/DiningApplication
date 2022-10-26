@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :menus
   resources :dininghalls
-  root "menus#index"
+  root "dininghalls#index"
 end

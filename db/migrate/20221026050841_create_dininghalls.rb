@@ -7,7 +7,8 @@ class CreateDininghalls < ActiveRecord::Migration[7.0]
       t.text :lunch_hours
       t.text :dinner_hours
       t.time :time
-      
+      t.text :menu
+
       t.timestamps
     end
   end
