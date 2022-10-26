@@ -1,2 +1,5 @@
-<h1> [Insert Dining Hall Basic Info] </h1>
+<h1> <%= @dininghall.name %> </h1>
 <h2> Hours of Operation: </h2>
+<dd> <%= @dininghall.hours %> </dd>
+<br>
+<%= link_to "Update Dininghall", edit_dininghall_path(@dininghall)%>

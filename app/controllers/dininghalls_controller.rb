@@ -4,11 +4,11 @@ class DininghallsController < ApplicationController
     end
 
     def show 
-        @dininghalls = Dininghall.find(params[:id])
+        @dininghall = Dininghall.find(params[:id])
     end
 
     def new 
-        @dininghalls = Dininghall.new
+        @dininghall = Dininghall.new
     end
     
     def create
@@ -22,6 +22,16 @@ class DininghallsController < ApplicationController
         end
     end
 
+    def edit
+        @dininghall = Dininghall.find params[:id]
+    end 
+
+    def update
+        @dininghall = Dininghall.find params[:id]
+        @dininghall.update(create_update_params)
+        flash[:notice] = "#{@dininghall.name} was successfully updated"
+        redirect_to menu_path(@dininghall)
+    end
 private 
     def create_update_params
         params.require(:dininghall).permit(:name, :hours)
