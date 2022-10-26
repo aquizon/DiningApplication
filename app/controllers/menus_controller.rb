@@ -1,6 +1,9 @@
 class MenusController < ApplicationController
 
 
+    def menu_index
+      @menus = Menu.all.order(:meal_of_day)
+    end
 
     def new 
         @menu = Menu.new
@@ -32,4 +35,5 @@ private
     def create_update_params
         params.require(:menu).permit(:name, :description, :meal_of_day, :ingredients, :calories, :allergens, :diet)
     end
+
 end
