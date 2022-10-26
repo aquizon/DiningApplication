@@ -5,6 +5,8 @@
         <tr>
             <th>Name</th>
             <th>Hours</th>
+            <th>Breakfast Hours</th>
+            <th>Time</th>
         </tr>
     </thead>
     <tbody>
@@ -12,6 +14,8 @@
         <tr>
             <td> <%= link_to "#{dh.name}", dininghall_path(dh.id)%> </td>
             <td> <%= dh.hours%> </td>
+            <td> <%= dh.breakfast_hours%> </td>
+            <td> <%= dh.time%> </td>
         </tr>
         <%end%>
     </tbody>
