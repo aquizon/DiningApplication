@@ -3,5 +3,108 @@
     "coverage": {
     },
     "timestamp": 1666553404
+  },
+  "Cucumber Features": {
+    "coverage": {
+      "/mnt/c/Users/annac/OneDrive/Documents/SeniorYear/COSC415/project/diningApplication-1/features/step_definitions/feature_steps.rb": {
+        "lines": [
+          1,
+          1,
+          2,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null
+        ]
+      },
+      "/mnt/c/Users/annac/OneDrive/Documents/SeniorYear/COSC415/project/diningApplication-1/app/models/menu.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/mnt/c/Users/annac/OneDrive/Documents/SeniorYear/COSC415/project/diningApplication-1/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/mnt/c/Users/annac/OneDrive/Documents/SeniorYear/COSC415/project/diningApplication-1/app/controllers/menus_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          1,
+          0,
+          null,
+          null,
+          null
+        ]
+      },
+      "/mnt/c/Users/annac/OneDrive/Documents/SeniorYear/COSC415/project/diningApplication-1/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/mnt/c/Users/annac/OneDrive/Documents/SeniorYear/COSC415/project/diningApplication-1/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/mnt/c/Users/annac/OneDrive/Documents/SeniorYear/COSC415/project/diningApplication-1/app/helpers/menu_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      }
+    },
+    "timestamp": 1666749074
   }
 }
