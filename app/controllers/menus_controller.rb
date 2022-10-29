@@ -14,7 +14,7 @@ class MenusController < ApplicationController
     def create
         m = Menu.new(create_update_params)
         if m.save
-            flash[:notice] = "Menu Item #{m.name} successfully entered"
+            flash[:notice] = "Menu Item #{m.name} successfully created"
             redirect_to menus_path
         else
             flash[:warning] = "Menu Item could not be entered"
