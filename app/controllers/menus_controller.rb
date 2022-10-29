@@ -1,7 +1,7 @@
 class MenusController < ApplicationController
     def index
         @menus = Menu.all.order(:meal_of_day)
-      end
+    end
 
     def show 
         @menu = Menu.find(params[:id])

@@ -1,0 +1,2 @@
+class Dininghall < ApplicationRecord
+end
