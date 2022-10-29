@@ -3,5 +3,138 @@
     "coverage": {
     },
     "timestamp": 1666553404
+  },
+  "Cucumber Features": {
+    "coverage": {
+      "/Users/maryring13/Desktop/Software Engineering/diningApplication/features/step_definitions/new_item_steps.rb": {
+        "lines": [
+          1,
+          1,
+          2,
+          null,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          5,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          2,
+          null,
+          null,
+          null,
+          1,
+          1,
+          7,
+          null,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          3,
+          null,
+          null,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/maryring13/Desktop/Software Engineering/diningApplication/app/models/menu.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/maryring13/Desktop/Software Engineering/diningApplication/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/maryring13/Desktop/Software Engineering/diningApplication/app/controllers/menus_controller.rb": {
+        "lines": [
+          1,
+          1,
+          2,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          1,
+          null,
+          0,
+          0,
+          null,
+          null,
+          null,
+          1,
+          0,
+          null,
+          null,
+          1,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          1,
+          1,
+          1,
+          null,
+          null,
+          null
+        ]
+      },
+      "/Users/maryring13/Desktop/Software Engineering/diningApplication/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/maryring13/Desktop/Software Engineering/diningApplication/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/maryring13/Desktop/Software Engineering/diningApplication/app/helpers/menu_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      }
+    },
+    "timestamp": 1667074811
   }
 }

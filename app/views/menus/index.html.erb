@@ -1,5 +1,5 @@
-<div><h1>Menu</h1></div>
-
+<div>
+<h1>Menu</h1>
 <table>
     <thead>
         <tr>
@@ -15,13 +15,13 @@
     <tbody>
         <%@menus.each do |m|%>
         <tr>
-            <td> <%= link_to "#{m.name}", menu_path(m.id)%> </td>
-            <td> <%= m.description%> </td>
-            <td> <%= m.meal_of_day%> </td>
-            <td> <%= m.ingredients%> </td>
-            <td> <%= m.calories%> </td>
-            <td> <%= m.allergens%> </td>
-            <td> <%= m.diet%> </td>
+            <td class="name"> <%= link_to "#{m.name}", menu_path(m.id)%> </td>
+            <td class="description"> <%= m.description%> </td>
+            <td class="meal"> <%= m.meal_of_day%> </td>
+            <td class="ingredients"> <%= m.ingredients%> </td>
+            <td class="calories"> <%= m.calories%> </td>
+            <td class="allergens"> <%= m.allergens%> </td>
+            <td class="diet"> <%= m.diet%> </td>
         </tr>
         <%end%>
     </tbody>
