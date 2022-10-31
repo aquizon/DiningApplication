@@ -14,7 +14,6 @@ end
 
 Then('I should be on the show page for {string}') do |item|
     menu_item = Menu.find_by_name(item)
-    debugger
     expect(page.current_path).to eq(menu_path(menu_item.id))
 end
 
