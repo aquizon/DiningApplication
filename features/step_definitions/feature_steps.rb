@@ -13,7 +13,9 @@ When('I click on {string}') do |link|
 end
 
 Then('I should be on the show page for {string}') do |item|
-    expect(page.current_path).to eq(menu_path)
+    menu_item = Menu.find_by_name(item)
+    debugger
+    expect(page.current_path).to eq(menu_path(menu_item.id))
 end
 
 Given('these Dininghalls:') do |table|
