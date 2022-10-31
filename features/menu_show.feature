@@ -13,5 +13,6 @@ Background: The menu has a few items
 
 Scenario: Click on a menu item for more details
     Given I am on the MenusIndex page
-    When I click on "Rice"
-    Then I should be on the show page for Rice
+    When I click on "Chicken Alfredo"
+    Then I should be on the show page for "Chicken Alfredo"
+    And I should not see "Rice"
