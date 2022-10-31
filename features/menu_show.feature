@@ -9,8 +9,9 @@ Background: The menu has a few items
         |name              |description                                              |meal_of_day|ingredients                             |calories|allergens   |diet|
         |"Chicken Alfredo" | "Fettucine pasta in a creamy sauce with grilled chicken"| "Dinner"| "Chicken, Alfredo Sauce, Fettucine Pasta"| 400| "Dairy, Gluten"| ""|
         |"Tofu Steak Frites" | "Waygu tofu marinated in a pepper butter, and served with french fries"| "Dinner"| "tofu, Potatoes, Butter, Pepper"| 400| "Dairy, Soy"| "Vegitarian"|
+        |"Rice"              | "Its just rice"                                                        | "Lunch" | "rice, water"                   | 50 |  ""         | "Vegitarian, Vegan, Dairy"|
 
 Scenario: Click on a menu item for more details
     Given I am on the MenusIndex page
-    When I click on "Chicken Alfredo"
-    Then I should be on the Menu Item show page
+    When I click on "Rice"
+    Then I should be on the show page for Rice

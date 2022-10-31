@@ -19,7 +19,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_26_050841) do
     t.text "dinner_hours"
     t.time "time"
     t.text "menu"
-    t.datetime "datetime"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
