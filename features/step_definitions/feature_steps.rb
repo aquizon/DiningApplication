@@ -37,7 +37,7 @@ end
 
 Then('I should be on the show dining hall page for {string}') do |item|
     dining_hall = Dininghall.find_by_name(item)
-    expect(page.current_path).to eq(dininghall_path(item.id))
+    expect(page.current_path).to eq(dininghall_path(dining_hall.id))
   end
 
 
@@ -55,3 +55,23 @@ When('I change the {string} to {string}') do |field, value|
   # debugger
   fill_in(field, with: value)
 end
+
+When('I fill in the following:') do |table|
+    table.hashes.each do |form|
+      fill_in(form['Field'], with: form['Value'])
+    end
+  end
+
+  Then('I should be on the new dining hall page') do
+    expect(page.current_path).to eq(new_dininghall_path)
+  end
+  
+  Then('I should be on the index page') do
+    expect(page.current_path).to eq(root_path).or eq('/dininghalls')
+
+  end
+  
+  Then('I should be on the edit dining hall page for {string}') do |string|
+    dining_hall = Dininghall.find_by_name(string)
+    expect(page.current_path).to eq(edit_dininghall_path(dining_hall.id))
+  end
