@@ -1,8 +1,6 @@
 <h1> <%= @dininghall.name %> </h1>
-<h2> Hours of Operation: </h2>
-<dd> <%= @dininghall.hours %> </dd>
-<dd> <%= @dininghall.breakfast_hours %> </dd>
-<dd> <%= @dininghall.time %> </dd>
+<h2> Hours of Operation: <%= @dininghall.hours %> </h2>
+<dd> Breakfast hours: <%= @dininghall.breakfast_hours %> </dd>
 
 <br>
 <%= link_to "Update Dininghall", edit_dininghall_path(@dininghall)%>
