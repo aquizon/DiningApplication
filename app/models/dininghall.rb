@@ -1,3 +1,3 @@
 class Dininghall < ApplicationRecord
-   # has_many :menu
+    #has_many :menus
 end
