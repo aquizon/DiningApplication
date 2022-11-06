@@ -44,7 +44,9 @@
 </table>
 <br>
 <div>
+<% if user_signed_in? && current_user.admin %>
 <%= link_to "New Menu Item", new_menu_path%>
+<% end %>
 <br> 
 <%= link_to "Go to Dining Hall Hour Info", dininghalls_path%>
 </div>

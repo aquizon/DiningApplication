@@ -1,4 +1,5 @@
 class DininghallsController < ApplicationController
+  before_action :admin_logged_in?, only: [:new, :create, :update]
   def index
     @dininghalls = Dininghall.all.order(:name)
   end
@@ -38,4 +39,11 @@ class DininghallsController < ApplicationController
   def create_update_params
     params.require(:dininghall).permit(:name, :hours, :breakfast_hours, :lunch_hours, :dinner_hours, :time, :menu)
   end
+end
+
+def admin_logged_in?
+  return true if user_signed_in? && current_user.admin
+  
+  flash[:alert] = "Only admin users can create new toys"
+  redirect_to new_user_session_path and return
 end

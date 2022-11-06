@@ -23,3 +23,5 @@ Dininghall.create!(name: "Frank Dining Hall", hours: "7:30am - 12:00am", breakfa
 Dininghall.create!(name: "Coop", hours: "7:30am - 12:00am", breakfast_hours: "7:00am - 10:00am", lunch_hours: "11:00am - 5:00pm", menu: "Current Menu")
 Dininghall.create!(name: "Donnovan's Pub", hours: "7:30am - 12:00am", breakfast_hours: "7:00am - 10:00am", menu: "Current Menu")
 Dininghall.create!(name: "Chobani", hours: "7:30am - 12:00am", breakfast_hours: "7:00am - 10:00am", time: Time.new(2008,6,21, 13,30,0, "+09:00"), menu: "Current Menu")
+
+User.create!(:email => 'admin@colgate.edu', :admin => true, :password => "Colgate13")
