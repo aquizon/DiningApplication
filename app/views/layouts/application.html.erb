@@ -12,7 +12,32 @@
   </head>
 
   <body>
-    
+      </div>
+      <% if user_signed_in? %>
+        <div class="col-md-2 offset-md-6">
+          <%= link_to t("logout"), destroy_user_session_path, method: :delete, :class => "btn btn-warning btn-sm" %>
+        </div>
+      <% else %>
+        <div class="col-md-2 offset-md-6">
+          <%= link_to "Sign in", new_user_session_path, :class => "btn btn-sm btn-primary" %>
+          <%= link_to "Sign up", new_user_registration_path, :class => "btn btn-sm btn-primary" %>
+        </div>
+      <% end %>
+    </div>
+    <br/>
+    <div class="row">
+      <% if user_signed_in? %>
+        <div class="col-md-4 alert alert-light">
+          <span>
+            <%= "Welcome #{current_user.email}" %>
+          </span>
+          <% if current_user.admin %>
+            <span>(admin user)</span>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <br/>
     <% if flash[:notice] %>
       <div class="alert alert-primary">
         <%= "#{flash[:notice]}"%>
