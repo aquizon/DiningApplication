@@ -1,6 +1,7 @@
 class MenusController < ApplicationController
   def index
-    @menus = Menu.all.order(:meal_of_day)
+    order = params[:order] || 'meal_of_day'
+    @menus = Menu.sort_menu_by(order)
   end
 
   def show
