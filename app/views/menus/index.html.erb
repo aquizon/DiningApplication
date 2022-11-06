@@ -1,6 +1,22 @@
 <div>
 <h1>Menu</h1>
 <table>
+  <tr>
+    <td class="menusort"> 
+      <%= link_to "All Day Menu", menus_path(:order => nil)%> 
+    </td>
+    <td class="menusort"> 
+      <%= link_to "Breakfast Menu", menus_path(:order => "Breakfast")%> 
+    </td>
+    <td class="menusort"> 
+      <%= link_to "Lunch Menu", menus_path(:order => "Lunch")%> 
+    </td>
+    <td class="menusort"> 
+      <%= link_to "Dinner Menu", menus_path(:order => "Dinner")%> 
+    </td>
+  </tr>
+</table>
+<table>
     <thead>
         <tr>
             <th>Name</th>
