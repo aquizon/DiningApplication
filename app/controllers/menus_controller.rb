@@ -35,6 +35,14 @@ class MenusController < ApplicationController
     redirect_to menu_path(@menu)
   end
 
+  def get_previous_path
+    if request.referrer != Rails.root
+      return request.referrer 
+    end
+    return Rails.root
+  end
+  helper_method :get_previous_path
+
   private
 
   def create_update_params
