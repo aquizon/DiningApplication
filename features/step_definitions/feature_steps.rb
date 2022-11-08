@@ -75,3 +75,7 @@ When('I fill in the following:') do |table|
     dining_hall = Dininghall.find_by_name(string)
     expect(page.current_path).to eq(edit_dininghall_path(dining_hall.id))
   end
+  Then('I should be on the {string} page') do |string|
+    dining_hall = Dininghall.find_by_name(string)
+    expect(page.current_path).to eq(dininghall_path(dining_hall.id))
+  end
