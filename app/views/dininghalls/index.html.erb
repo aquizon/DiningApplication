@@ -20,6 +20,7 @@
         <%end%>
     </tbody>
 </table>
+<% if user_signed_in? && current_user.admin %>
 <%= link_to "New Dining Hall", new_dininghall_path%>
-<br>
+<% end %>
 <div>

@@ -1,6 +1,8 @@
 class MenusController < ApplicationController
+  before_action :admin_logged_in?, only: [:new, :create]
   def index
-    @menus = Menu.all.order(:meal_of_day)
+    order = params[:order] || 'meal_of_day'
+    @menus = Menu.sort_menu_by(order)
   end
 
   def show
@@ -33,9 +35,24 @@ class MenusController < ApplicationController
     redirect_to menu_path(@menu)
   end
 
+  def get_previous_path
+    if request.referrer != Rails.root
+      return request.referrer 
+    end
+    return Rails.root
+  end
+  helper_method :get_previous_path
+
   private
 
   def create_update_params
     params.require(:menu).permit(:name, :description, :meal_of_day, :ingredients, :calories, :allergens, :diet)
   end
+end
+
+def admin_logged_in?
+  return true if user_signed_in? && current_user.admin
+  
+  flash[:alert] = "Only admin users can create new toys"
+  redirect_to new_user_session_path and return
 end
