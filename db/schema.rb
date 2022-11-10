@@ -30,6 +30,7 @@
     t.integer "calories"
     t.text "allergens"
     t.text "diet"
+    t.text "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

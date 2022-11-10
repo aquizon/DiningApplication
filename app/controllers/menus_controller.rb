@@ -46,7 +46,7 @@ class MenusController < ApplicationController
   private
 
   def create_update_params
-    params.require(:menu).permit(:name, :description, :meal_of_day, :ingredients, :calories, :allergens, :diet)
+    params.require(:menu).permit(:name, :description, :meal_of_day, :ingredients, :calories, :allergens, :diet, :status)
   end
 end
 
