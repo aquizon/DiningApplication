@@ -8,6 +8,7 @@ class CreateMenus < ActiveRecord::Migration[7.0]
       t.integer :calories
       t.text :allergens
       t.text :diet
+      t.text :status
       t.timestamps
     end
   end

@@ -31,6 +31,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_04_011407) do
     t.integer "calories"
     t.text "allergens"
     t.text "diet"
+    t.text "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
