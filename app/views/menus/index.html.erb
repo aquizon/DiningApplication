@@ -16,6 +16,24 @@
     </td>
   </tr>
 </table>
+<div>
+  <%= form_with url: menus_path, local: true, method: :get do %>
+    <%# select_tag "Dietary Resrictions", raw("<option>Test</option><option>Test2</option>"), multiple: true, class: 'form_input' %>
+    <%= check_box_tag "dairy", "dairy"%>
+    <%= label_tag "Dairy Free" %>
+    <br>
+    <%= check_box_tag "gluten", "gluten"%>
+    <%= label_tag "Gluten Free"%>
+    <br>
+    <%= check_box_tag "soy", "soy"%>
+    <%= label_tag "Soy Free"%>
+    <br>
+    <%= check_box_tag "nuts", "nuts"%>
+    <%= label_tag "Nut Free"%>
+    <br>
+    <%= submit_tag "Filter"%>
+  <% end %>
+</div>
 <table>
     <thead>
         <tr>

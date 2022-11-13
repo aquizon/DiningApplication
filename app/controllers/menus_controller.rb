@@ -2,7 +2,12 @@ class MenusController < ApplicationController
   before_action :admin_logged_in?, only: [:new, :create]
   def index
     order = params[:order] || 'meal_of_day'
-    @menus = Menu.sort_menu_by(order)
+    allergens = get_dietary_restrictions
+    #probably need to add a similar thing for  vegan/veg
+    @menus = Menu.sort_menu_by(order, allergens)
+    
+
+    
   end
 
   def show
@@ -47,6 +52,17 @@ class MenusController < ApplicationController
 
   def create_update_params
     params.require(:menu).permit(:name, :description, :meal_of_day, :ingredients, :calories, :allergens, :diet, :status)
+  end
+
+  def get_dietary_restrictions
+    diets = ["dairy", "gluten", "soy", "nuts"]
+    filter = []
+    diets.each do |diet|
+      if !params[diet].nil?
+        filter << diet
+      end
+    end
+    filter
   end
 end
 
