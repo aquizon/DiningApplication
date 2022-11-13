@@ -21,7 +21,8 @@
         <div class="col-md-2 offset-md-6">
           <%= link_to "Sign in", new_user_session_path, :class => "btn btn-sm btn-primary" %>
           <%= link_to "Sign up", new_user_registration_path, :class => "btn btn-sm btn-primary" %>
-        </div>
+          <%= button_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, :class => "btn btn-warning btn-sm", :method => :post %>
+          </div>
       <% end %>
     </div>
     <br/>
