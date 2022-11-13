@@ -1,8 +1,27 @@
-<h1> <%= @dininghall.name %> </h1>
-<h2> Hours of Operation: </h2>
-<dd> <%= @dininghall.hours %> </dd>
-<dd> <%= @dininghall.breakfast_hours %> </dd>
-<dd> <%= @dininghall.time %> </dd>
+<div>
+<button><h1> <%= @dininghall.name %> </h1></button> <%#make this a dropdown with CSS (iteration 3)%>
+    <div>
+    <%chob = Dininghall.find_by_name("Chobani")%>
+    <%=link_to "Chobani", dininghall_path(chob.id)%>
+
+    <%coop = Dininghall.find_by_name("Coop")%>
+    <%=link_to "Coop", dininghall_path(coop.id)%>
+
+    <%donny = Dininghall.find_by_name("Donnovan's Pub")%>
+    <%=link_to "Donnovan's Pub", dininghall_path(donny.id)%>
+  
+    <%frank = Dininghall.find_by_name("Frank Dining Hall")%>
+    <%=link_to "Frank Dining Hall", dininghall_path(frank.id)%>
+    </div>
+</div>
+
+<h2> Hours of Operation: <%= @dininghall.hours %> </h2>
+<dd> Breakfast hours: <%= @dininghall.breakfast_hours %> </dd>
+<%# link_to "View Menu", @dininghall.menus_path%>
 
 <br>
+<% if user_signed_in? && current_user.admin %>
 <%= link_to "Update Dininghall", edit_dininghall_path(@dininghall)%>
+<% end %>
+<br>
+<%= link_to "Back", get_previous_path %>

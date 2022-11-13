@@ -28,12 +28,6 @@ When('I press {string}') do |link|
   click_on link
 end
 
-When('I fill in the following:') do |table|
-  table.hashes.each do |form|
-    fill_in(form['Field'], with: form['Value'])
-  end
-end
-
 Then('I should see that {string} is made of {string}') do |name, ingr|
   items = all('td.name')
   ingredients = ''

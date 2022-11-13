@@ -44,6 +44,7 @@
             <th>Calories</th>
             <th>Allergens</th>
             <th>Diet</th>
+            <th>Status</th>
         </tr>
     </thead>
     <tbody>
@@ -56,13 +57,18 @@
             <td class="calories"> <%= m.calories%> </td>
             <td class="allergens"> <%= m.allergens%> </td>
             <td class="diet"> <%= m.diet%> </td>
+            <td class ="status"> <%=m.status%> </td>
         </tr>
         <%end%>
     </tbody>
 </table>
 <br>
 <div>
+<% if user_signed_in? && current_user.admin %>
 <%= link_to "New Menu Item", new_menu_path%>
+<% end %>
 <br> 
 <%= link_to "Go to Dining Hall Hour Info", dininghalls_path%>
+<br>
+<%= link_to "Back", get_previous_path %>
 </div>

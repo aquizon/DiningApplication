@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 Menu.destroy_all
 
+
 Menu.create!(name: "Chicken Alfredo", description: "Fettucine pasta in a creamy sauce with grilled chicken", meal_of_day: "Dinner", ingredients: "Chicken, Alfredo Sauce, Fettucine Pasta", calories: 400, allergens: "Dairy, Gluten", diet: "")
 Menu.create!(name: "Pizza", description: "Plain cheese pizza", meal_of_day: "Lunch", ingredients: "Flour, Eggs, Oil, Mozzerella Cheese, Tomatoes", calories: 250, allergens: "Dairy, Gluten", diet: "Vegetarian")
 Menu.create!(name: "PB&J Sandwich", description: "Peanut Butter and Jelly Sandwich", meal_of_day: "Lunch", ingredients: "Whole Wheat Bread, Peanut Butter, Grape Jelly", calories: 150, allergens: "Gluten, Nuts", diet: "Vegetarian, Vegan")
@@ -16,6 +17,7 @@ Menu.create!(name: "Garlic Bread", description: "A side of garlic bread", meal_o
 Menu.create!(name: "Yogurt", description: "Vanilla greek yogurt", meal_of_day: "Breakfast", ingredients: "Milk, Vanilla Extract", calories: 100, allergens: "Dairy", diet: "Vegatarian")
 Menu.create!(name: "Steak", description: "Grilled Wagyu steak", meal_of_day: "Dinner", ingredients: "Wagyu Beef, Salt, Black Pepper", calories: 350, allergens: "", diet: "")
 
+
 # debugger
 Dininghall.destroy_all
 
@@ -23,3 +25,5 @@ Dininghall.create!(name: "Frank Dining Hall", hours: "7:30am - 12:00am", breakfa
 Dininghall.create!(name: "Coop", hours: "7:30am - 12:00am", breakfast_hours: "7:00am - 10:00am", lunch_hours: "11:00am - 5:00pm", menu: "Current Menu")
 Dininghall.create!(name: "Donnovan's Pub", hours: "7:30am - 12:00am", breakfast_hours: "7:00am - 10:00am", menu: "Current Menu")
 Dininghall.create!(name: "Chobani", hours: "7:30am - 12:00am", breakfast_hours: "7:00am - 10:00am", time: Time.new(2008,6,21, 13,30,0, "+09:00"), menu: "Current Menu")
+
+User.create!(:email => 'admin@colgate.edu', :admin => true, :password => "Colgate13")
