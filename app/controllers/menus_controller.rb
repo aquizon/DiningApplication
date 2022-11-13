@@ -3,11 +3,8 @@ class MenusController < ApplicationController
   def index
     order = params[:order] || 'meal_of_day'
     allergens = get_dietary_restrictions
-    #probably need to add a similar thing for  vegan/veg
     @menus = Menu.sort_menu_by(order, allergens)
-    
 
-    
   end
 
   def show
@@ -55,7 +52,7 @@ class MenusController < ApplicationController
   end
 
   def get_dietary_restrictions
-    diets = ["dairy", "gluten", "soy", "nuts"]
+    diets = ["dairy", "gluten", "soy", "nuts", "vegan", "vegetarian"]
     filter = []
     diets.each do |diet|
       if !params[diet].nil?
@@ -64,11 +61,12 @@ class MenusController < ApplicationController
     end
     filter
   end
-end
 
-def admin_logged_in?
-  return true if user_signed_in? && current_user.admin
+
+  def admin_logged_in?
+    return true if user_signed_in? && current_user.admin
   
-  flash[:alert] = "Only admin users can create new toys"
-  redirect_to new_user_session_path and return
+    flash[:alert] = "Only admin users can create new toys"
+    redirect_to new_user_session_path and return
+  end
 end
