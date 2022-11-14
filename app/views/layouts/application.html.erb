@@ -40,16 +40,19 @@
     </div>
     <br/>
     <% if flash[:notice] %>
-      <div class="alert alert-primary">
-        <%= "#{flash[:notice]}"%>
+    <div class="row">
+      <div class="col-md-4 alert alert-primary notice">
+        <%= "#{flash[:notice]}" %>
       </div>
-    <%end%>
-
-    <% if flash[:warning] %>
-      <div class="alert alert-warning">
-        <%= "#{flash[:warning]}"%>
+    </div>
+  <% end %>
+  <% if flash[:alert] %>
+    <div class="row">
+      <div class="col-md-4 alert alert-warning alert">
+        <%= "#{flash[:alert]}" %>
       </div>
-    <%end%>
+    </div>
+  <% end %>
     <%= yield%>
   </body>
 </html>
