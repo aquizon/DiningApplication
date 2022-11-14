@@ -1,5 +1,5 @@
 class MenusController < ApplicationController
-  before_action :admin_logged_in?, only: [:new, :create]
+  before_action :admin_logged_in?, only: [:new, :create, :destroy]
   def index
     order = params[:order] || 'meal_of_day'
     allergens = get_dietary_restrictions
@@ -37,6 +37,20 @@ class MenusController < ApplicationController
     redirect_to menu_path(@menu)
   end
 
+  def destroy
+    # load existing object again from URL param
+    item = Menu.find(params[:id])
+    # destroy object
+    item.destroy
+    respond_to do |format|
+      format.html do
+        # success message
+        flash[:success] = 'Item removed successfully'
+        redirect_to menus_path
+      end
+    end
+  end
+  
   def get_previous_path
     if request.referrer != Rails.root
       return request.referrer 

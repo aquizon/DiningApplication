@@ -27,6 +27,8 @@
 <br>
 <% if user_signed_in? && current_user.admin %>
 <%= link_to "Update Menu Item", edit_menu_path(@menu)%>
+<br>
+<%= button_to "Delete Item", menu_path(@menu), method: :delete %>
 <% end %>
 <br>
 <%= link_to "Back", get_previous_path %>
