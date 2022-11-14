@@ -79,3 +79,25 @@ When('I fill in the following:') do |table|
     dining_hall = Dininghall.find_by_name(string)
     expect(page.current_path).to eq(dininghall_path(dining_hall.id))
   end
+
+  Given('these Users:') do |table|
+    table.hashes.each do |h|
+      u = User.new(h)
+      u.save
+    end
+  end
+
+  When('I login as {string} and {string}') do |string, string2|
+    fill_in 'Email', with: string
+    fill_in 'Password', with: string2
+    click_on 'Log in'
+  end
+
+  Given('I am on the new dining hall page') do
+    visit new_dininghall_path
+  end
+
+  Given('I am on the the show menu item page for {string}') do |string|
+    menu_item = Menu.find_by_name(string)
+    visit menu_path(menu_item.id)
+  end

@@ -52,6 +52,6 @@ end
 def admin_logged_in?
   return true if user_signed_in? && current_user.admin
   
-  flash[:alert] = "Only admin users can create new toys"
+  flash[:alert] = "Only admin users can create new Dining Halls"
   redirect_to new_user_session_path and return
 end

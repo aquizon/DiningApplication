@@ -8,14 +8,26 @@ Background: The dining hall has some existing menu items
     | name | description | meal_of_day | ingredients | calories | allergens | diet | 
     | water | water flavored | Breakfast | water | 0 | | vegan, vegetarian |
     | steak | grilled wagyu | Dinner | Beef, Salt, Pepper | 500 | | |
-    # Will eventually need to account for admins 
+    Given these Users:
+      | email | password | admin |
+      | admin@colgate.edu | Colgate13 | true |
+      | user@colgate.edu | Colgate13 | false |
+
+Scenario: Create a new menu item without logging in
+    Given I am on the menu index page
+    Then I should see "water"
+    And I should see "steak"
+    But I should not see "New Menu Item"
 
 Scenario: Create a new menu item 
     Given I am on the menu index page
     Then I should see "water" 
     And I should see "steak" 
     But I should not see "milk"
-    #When I press "Sign in" etc (login stuff)
+    But I should not see "New Menu Item"
+    When I press "Sign in"
+    And I login as "admin@colgate.edu" and "Colgate13"
+    Given I am on the menu index page
     And I should see "New Menu Item"
     When I press "New Menu Item"
     Then I should be on the new menu item page 
@@ -36,4 +48,6 @@ Scenario: Create a new menu item
     And I should see that "milk" is made of "milk"
 
 
-#Eventually add scenarios that check privileges
+Scenario: Non-admins shouldn't be allowed on the new menu item page
+    Given I am on the new menu item page
+    Then I should see "Only admin users can create new menu items"

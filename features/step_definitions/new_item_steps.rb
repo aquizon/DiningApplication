@@ -37,3 +37,7 @@ Then('I should see that {string} is made of {string}') do |name, ingr|
 
   expect(ingredients).to eq(ingr)
 end
+
+Given('I am on the new menu item page') do
+  visit new_menu_path
+end
