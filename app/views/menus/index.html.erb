@@ -41,6 +41,9 @@
     <%= submit_tag "Filter"%>
   <% end %>
 </div>
+
+<br>
+<p> Menu Hours: <%= Menu.get_menu_hours(params[:order]) %> </p>
 <table>
     <thead>
         <tr>
