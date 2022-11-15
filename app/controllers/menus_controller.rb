@@ -8,7 +8,12 @@ class MenusController < ApplicationController
   end
 
   def show
-    @menu = Menu.find(params[:id])
+    if (Menu.where(id: params[:id]).empty?)
+      flash[:warning] = 'Menu Item does not exist'
+      redirect_to menus_path
+    else
+      @menu = Menu.find(params[:id])
+    end
   end
 
   def new
