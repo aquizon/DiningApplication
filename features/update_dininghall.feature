@@ -14,7 +14,7 @@ Scenario: Update a menu item
     Then I should see "Frank Dining Hall" 
     And I should see "Coop" 
     When I press "Coop"
-    Then I should be on the show dining hall page for "\"Coop\""
+    Then I should be on the show dining hall page for "Coop"
     And I should see "Update Dininghall"
     When I press "Update Dininghall"
     Then I should be on the edit dining hall page for "\"Coop\""

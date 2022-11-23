@@ -15,7 +15,6 @@ Scenario: Create status for item:
     Then I click on "steak"
     Then I should be on the show page for "steak"
     Then I click on "Update Menu Item"
-    Then I should not see "availible"
     When I fill in the following:
         |Field | Value    |
         |Status| available|
@@ -27,7 +26,7 @@ Scenario: Update status for item:
     Then I click on "pizza"
     Then I should be on the show page for "pizza"
     Then I click on "Update Menu Item"
-    Then I should see "available"
+    Then I should be on the edit menu item page for "pizza"
     And I should not see "out of stock"
     When I fill in the following:
         |Field | Value    |

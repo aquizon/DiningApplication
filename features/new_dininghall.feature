@@ -19,7 +19,7 @@ Scenario: Create a new dining hall
         | Name | Chobani | 
         | Hours | 9:00am - 10:00pm | 
         | Breakfast hours | 9:00am - 11:00am | 
-    And I press "Create Dining Hall" 
+    And I click on "Create Dining Hall" 
     Then I should be on the index page
     And I should see "Chobani"
     And I should see "10:00pm" 

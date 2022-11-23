@@ -3,8 +3,6 @@
 <button><h1> <%= @dininghall.name %> </h1></button> <%#make this a dropdown with CSS (iteration 3)%>
     
     <div>
-    <%chob = Dininghall.find_by_name("Chobani")%>
-    <%=link_to "Chobani", dininghall_path(chob.id)%>
 
     <%coop = Dininghall.find_by_name("Coop")%>
     <%=link_to "Coop", dininghall_path(coop.id)%>
@@ -14,6 +12,10 @@
   
     <%frank = Dininghall.find_by_name("Frank Dining Hall")%>
     <%=link_to "Frank Dining Hall", dininghall_path(frank.id)%>
+
+    <%chobani = Dininghall.find_by_name("Chobani")%>
+    <%=link_to "Chobani", dininghall_path(chobani.id)%>
+
     </div>
 </div>
 
