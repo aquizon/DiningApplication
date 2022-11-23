@@ -12,7 +12,7 @@ Background: The dininghall has a few items
         | "Chobani"          | "7:45am - 12:00am" | breakfast_hours: "7:00am - 10:00am" | "Current Menu"|
 Scenario: Switch from Chobani to Frank
     Given I am on the index page
-    When I click on "Chobani"
+    Then I click on "Chobani"
     Then I should be on the "Chobani" dining hall page
     When I click on "Frank Dining Hall"
     Then I should be on the "Frank Dining Hall" dining hall page

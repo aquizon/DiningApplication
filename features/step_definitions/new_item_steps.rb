@@ -25,7 +25,7 @@ Then('I should not see {string}') do |string|
 end
 
 When('I press {string}') do |link|
-  click_on link
+  click_on(link)
 end
 
 Then('I should see that {string} is made of {string}') do |name, ingr|
