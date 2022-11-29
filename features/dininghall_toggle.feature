@@ -6,10 +6,10 @@ Feature: User can create a new dining hall
 Background: The dininghall has a few items
     Given these Dininghalls:
         |name                |hours               |breakfast_hours                      |menu           |
-        |"Frank Dining Hall" | "6:30am - 12:00am" | breakfast_hours: "7:00am - 10:00am" | "Current Menu"|
-        | "Coop"             | "7:30am - 12:00am" | breakfast_hours: "7:00am - 10:00am" | "Current Menu"|
-        | "Donnovan's Pub"   | "8:30am - 12:00am" | breakfast_hours: "7:00am - 10:00am" | "Current Menu"|
-        | "Chobani"          | "7:45am - 12:00am" | breakfast_hours: "7:00am - 10:00am" | "Current Menu"|
+        |Frank Dining Hall | "6:30am - 12:00am" | breakfast_hours: "7:00am - 10:00am" | "Current Menu"|
+        | Coop             | "7:30am - 12:00am" | breakfast_hours: "7:00am - 10:00am" | "Current Menu"|
+        | Donnovan's Pub   | "8:30am - 12:00am" | breakfast_hours: "7:00am - 10:00am" | "Current Menu"|
+        | Chobani            | "7:45am - 12:00am" | breakfast_hours: "7:00am - 10:00am" | "Current Menu"|
 Scenario: Switch from Chobani to Frank
     Given I am on the index page
     Then I click on "Chobani"
