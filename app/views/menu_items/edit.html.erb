@@ -1,0 +1,10 @@
+<h2>Edit Menu Item</h2>
+
+<%= form_with model: @menu_item, method: :put, local: true do |item_form|%>
+    <%= render 'form_template', item_form: item_form%>
+
+    <br>
+    <%= item_form.submit "Update Menu Item" %>
+<% end %>
+<br>
+<%= link_to "Back", get_previous_path %>

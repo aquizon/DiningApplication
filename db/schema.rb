@@ -23,7 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_06_213531) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "menus", force: :cascade do |t|
+  create_table "menu_items", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.string "meal_of_day"

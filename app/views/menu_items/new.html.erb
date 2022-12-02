@@ -1,0 +1,11 @@
+<h1>New Menu Item</h1>
+
+<%= form_with model: @menu_item, local: true do |item_form| %>
+<br> 
+
+    <%= render 'form_template', item_form: item_form%>
+    <br>
+    <%= item_form.submit "Create Menu Item"%>
+<% end %>
+<br>
+<%= link_to "Back", get_previous_path %>

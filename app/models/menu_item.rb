@@ -1,8 +1,9 @@
-class Menu < ApplicationRecord
- # belongs_to :dining_hall
+class MenuItem < ApplicationRecord
+ # set up habtm relationship to menu
   validates :name, presence: true
   validates :calories, numericality: true, comparison: { greater_than_or_equal_to: 0 }
 
+  #MOVE TO NEW MENU 
   @@hours = {"All_Day" => "7:30am - 12:00am", "Breakfast" => "7:30am - 11:00am", "Lunch" => "11:00am - 4:00pm", "Dinner" => "4:00pm - 12:00am"}
   def self.get_menu_hours(time_of_day)
     if (time_of_day.nil?)
@@ -12,13 +13,13 @@ class Menu < ApplicationRecord
     end
   end
   
-  def self.sort_menu_by(meal, filters)
+  def self.sort_items_by(meal, filters)
     query = ""
     if !meal.nil? && meal != "meal_of_day"
       meal = meal.to_s 
-      query = Menu.where("meal_of_day = ?", meal)
+      query = MenuItem.where("meal_of_day = ?", meal)
     else 
-      query =  Menu.all.order(:meal_of_day)
+      query =  MenuItem.all.order(:meal_of_day)
     end
     filters.each do |filter|
       #debugger

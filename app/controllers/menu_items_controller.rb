@@ -1,57 +1,57 @@
-class MenusController < ApplicationController
+class MenuItemsController < ApplicationController
   before_action :admin_logged_in?, only: [:new, :create, :destroy]
   def index
     order = params[:order] || 'meal_of_day'
     allergens = get_dietary_restrictions
-    @menus = Menu.sort_menu_by(order, allergens)
+    @menu_items = MenuItem.sort_items_by(order, allergens)
 
   end
 
   def show
-    if (Menu.where(id: params[:id]).empty?)
+    if (MenuItem.where(id: params[:id]).empty?)
       flash[:notice] = "Menu Item does not exist"
-      redirect_to menus_path
+      redirect_to menu_items_path
     else
-      @menu = Menu.find(params[:id])
+      @menu_item = MenuItem.find(params[:id])
     end
   end
 
   def new
-    @menu = Menu.new
+    @menu_item = MenuItem.new
   end
 
   def create
-    m = Menu.new(create_update_params)
+    m = MenuItem.new(create_update_params)
     if m.save
       flash[:notice] = "Menu Item #{m.name} successfully created"
-      redirect_to menus_path
+      redirect_to menu_items_path
     else
       flash[:warning] = 'Menu Item could not be entered'
-      redirect_to new_menu_path
+      redirect_to new_menu_item_path
     end
   end
 
   def edit
-    @menu = Menu.find params[:id]
+    @menu_item = MenuItem.find params[:id]
   end
 
   def update
-    @menu = Menu.find params[:id]
-    @menu.update(create_update_params)
-    flash[:notice] = "#{@menu.name} was successfully updated"
-    redirect_to menu_path(@menu)
+    @menu_item = MenuItem.find params[:id]
+    @menu_item.update(create_update_params)
+    flash[:notice] = "#{@menu_item.name} was successfully updated"
+    redirect_to menu_item_path(@menu_item)
   end
 
   def destroy
     # load existing object again from URL param
-    item = Menu.find(params[:id])
+    item = MenuItem.find(params[:id])
     # destroy object
     item.destroy
     respond_to do |format|
       format.html do
         # success message
         flash[:success] = 'Item removed successfully'
-        redirect_to menus_path(params[:order])
+        redirect_to menu_items_path(params[:order])
       end
     end
   end
@@ -67,7 +67,7 @@ class MenusController < ApplicationController
   private
 
   def create_update_params
-    params.require(:menu).permit(:name, :description, :meal_of_day, :ingredients, :calories, :allergens, :diet, :status)
+    params.require(:menu_item).permit(:name, :description, :meal_of_day, :ingredients, :calories, :allergens, :diet, :status)
   end
 
   def get_dietary_restrictions
