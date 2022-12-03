@@ -3,7 +3,7 @@ class CreateMenuItems < ActiveRecord::Migration[7.0]
     create_table :menu_items do |t|
       t.string :name
       t.text :description
-      t.string :meal_of_day
+      #t.string :meal_of_day
       t.text :ingredients
       t.integer :calories
       t.text :allergens
