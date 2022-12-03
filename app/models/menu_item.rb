@@ -1,5 +1,6 @@
 class MenuItem < ApplicationRecord
  # set up habtm relationship to menu
+  has_and_belongs_to_many :menus
   validates :name, presence: true
   validates :calories, numericality: true, comparison: { greater_than_or_equal_to: 0 }
 

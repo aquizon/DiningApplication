@@ -17,6 +17,7 @@
     </td>
   </tr>
 </table>
+</div>
 <div>
   <%= form_with url: menu_items_path, local: true, method: :get do %>
     <%# select_tag "Dietary Resrictions", raw("<option>Test</option><option>Test2</option>"), multiple: true, class: 'form_input' %>
@@ -44,7 +45,7 @@
 </div>
 
 <br>
-<p> Menu Hours: <%= MenuItems.get_menu_hours(params[:order]) % > </p> # this will stay the same i think 
+<p> Menu Hours: <%= MenuItem.get_menu_hours(params[:order]) %> </p> 
 <table>
     <thead>
         <tr>
@@ -59,8 +60,9 @@
         </tr>
     </thead>
     <tbody>
-        <%=@menu_items.each do |m|%>
+        
         <tr>
+          <%=@menu_items.each do |m|%>
             <td class="name"> <%= link_to "#{m.name}", menu_item_path(m.id)%> </td>
             <td class="description"> <%= m.description%> </td>
             <td class="meal"> <%= m.meal_of_day%> </td>

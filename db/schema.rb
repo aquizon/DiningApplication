@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_06_213531) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_03_022838) do
   create_table "dininghalls", force: :cascade do |t|
     t.text "name"
     t.text "hours"
@@ -36,6 +36,23 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_06_213531) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "menus", force: :cascade do |t|
+    t.string "meal_of_day"
+    t.integer "begin_time"
+    t.integer "end_time"
+    t.integer "dining_hall_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dining_hall_id"], name: "index_menus_on_dining_hall_id"
+  end
+
+  create_table "menus_menu_items", id: false, force: :cascade do |t|
+    t.integer "menus_id"
+    t.integer "menu_items_id"
+    t.index ["menu_items_id"], name: "index_menus_menu_items_on_menu_items_id"
+    t.index ["menus_id"], name: "index_menus_menu_items_on_menus_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -51,4 +68,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_06_213531) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "menus", "dining_halls"
 end
