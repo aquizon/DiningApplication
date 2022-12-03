@@ -1,15 +1,15 @@
 Given('these Items:') do |table|
   table.hashes.each do |h|
-    Menu.create!(h)
+    MenuItem.create!(h)
   end
 end
 
 Then('I should be on the new menu item page') do
-  expect(page.current_path).to eq(new_menu_path)
+  expect(page.current_path).to eq(new_menu_item_path)
 end
 
 Then('I should be on the menu index page') do
-  expect(page.current_path).to eq(menus_path)
+  expect(page.current_path).to eq(menu_items_path)
 end
 
 Then('I should see {string}') do |string|
@@ -17,7 +17,7 @@ Then('I should see {string}') do |string|
 end
 
 Given('I am on the menu index page') do
-  visit menus_path
+  visit menu_items_path
 end
 
 Then('I should not see {string}') do |string|
@@ -39,5 +39,5 @@ Then('I should see that {string} is made of {string}') do |name, ingr|
 end
 
 Given('I am on the new menu item page') do
-  visit new_menu_path
+  visit new_menu_item_path
 end

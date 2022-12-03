@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/") 
   resources :menus
+  resources :menu_items
   resources :dininghalls
   root "dininghalls#index"
   

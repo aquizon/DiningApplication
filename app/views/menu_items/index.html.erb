@@ -1,23 +1,25 @@
 <div>
-<h1>Menu</h1>
+<h1>Menu Items</h1>
 <table>
   <tr>
+  <%# I think we can leave this bc it actually deals with the menu not items %>
     <td class="menusort"> 
-      <%= link_to "All Day Menu", menus_path(:order => nil)%> 
+      <%= link_to "All Day Menu", menu_items_path(:order => nil)%> 
     </td>
     <td class="menusort"> 
-      <%= link_to "Breakfast Menu", menus_path(:order => "Breakfast")%> 
+      <%= link_to "Breakfast Menu", menu_items_path(:order => "Breakfast")%> 
     </td>
     <td class="menusort"> 
-      <%= link_to "Lunch Menu", menus_path(:order => "Lunch")%> 
+      <%= link_to "Lunch Menu", menu_items_path(:order => "Lunch")%> 
     </td>
     <td class="menusort"> 
-      <%= link_to "Dinner Menu", menus_path(:order => "Dinner")%> 
+      <%= link_to "Dinner Menu", menu_items_path(:order => "Dinner")%> 
     </td>
   </tr>
 </table>
+</div>
 <div>
-  <%= form_with url: menus_path, local: true, method: :get do %>
+  <%= form_with url: menu_items_path, local: true, method: :get do %>
     <%# select_tag "Dietary Resrictions", raw("<option>Test</option><option>Test2</option>"), multiple: true, class: 'form_input' %>
     <%= check_box_tag "dairy", "dairy"%>
     <%= label_tag "Dairy Free" %>
@@ -43,7 +45,7 @@
 </div>
 
 <br>
-<p> Menu Hours: <%= Menu.get_menu_hours(params[:order]) %> </p>
+<p> Menu Hours: <%= MenuItem.get_menu_hours(params[:order]) %> </p> 
 <table>
     <thead>
         <tr>
@@ -58,9 +60,10 @@
         </tr>
     </thead>
     <tbody>
-        <%@menus.each do |m|%>
+        
         <tr>
-            <td class="name"> <%= link_to "#{m.name}", menu_path(m.id)%> </td>
+          <%=@menu_items.each do |m|%>
+            <td class="name"> <%= link_to "#{m.name}", menu_item_path(m.id)%> </td>
             <td class="description"> <%= m.description%> </td>
             <td class="meal"> <%= m.meal_of_day%> </td>
             <td class="ingredients"> <%= m.ingredients%> </td>
@@ -75,7 +78,7 @@
 <br>
 <div>
 <% if user_signed_in? && current_user.admin %>
-<%= link_to "New Menu Item", new_menu_path%>
+<%= link_to "New Menu Item", new_menu_item_path%>
 <% end %>
 <br> 
 <%= link_to "Go to Dining Hall Hour Info", dininghalls_path%>
