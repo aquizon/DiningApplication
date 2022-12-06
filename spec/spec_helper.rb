@@ -1,5 +1,5 @@
 require 'simplecov'
-SimpleCov.start 'rails' do #add on main branch
+SimpleCov.start do
   add_filter 'spec'
   add_filter 'config'
 end
