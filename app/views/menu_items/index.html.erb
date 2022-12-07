@@ -45,7 +45,9 @@
 </div>
 
 <br>
+
 <p> Menu Hours: <%= Menu.get_menu_hours(params[:order]) %> </p> <%#changed from MenuItems%>
+
 <table>
     <thead>
         <tr>
@@ -65,7 +67,7 @@
           <%=@menu_items.each do |m|%>
             <td class="name"> <%= link_to "#{m.name}", menu_item_path(m.id)%> </td>
             <td class="description"> <%= m.description%> </td>
-            <td class="meal"> <%= m.meal_of_day%> </td>
+            <td class="meal"> <%# m.meal_of_day%> </td>
             <td class="ingredients"> <%= m.ingredients%> </td>
             <td class="calories"> <%= m.calories%> </td>
             <td class="allergens"> <%= m.allergens%> </td>

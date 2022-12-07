@@ -26,7 +26,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_03_022838) do
   create_table "menu_items", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.string "meal_of_day"
     t.text "ingredients"
     t.integer "calories"
     t.text "allergens"
@@ -36,21 +35,21 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_03_022838) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "menus", force: :cascade do |t|
-    t.string "meal_of_day"
-    t.integer "begin_time"
-    t.integer "end_time"
-    t.integer "dining_hall_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["dining_hall_id"], name: "index_menus_on_dining_hall_id"
+  create_table "menu_items_menus", id: false, force: :cascade do |t|
+    t.integer "menu_id"
+    t.integer "menu_item_id"
+    t.index ["menu_id"], name: "index_menu_items_menus_on_menu_id"
+    t.index ["menu_item_id"], name: "index_menu_items_menus_on_menu_item_id"
   end
 
-  create_table "menus_menu_items", id: false, force: :cascade do |t|
-    t.integer "menus_id"
-    t.integer "menu_items_id"
-    t.index ["menu_items_id"], name: "index_menus_menu_items_on_menu_items_id"
-    t.index ["menus_id"], name: "index_menus_menu_items_on_menus_id"
+  create_table "menus", force: :cascade do |t|
+    t.string "meal_of_day"
+    t.time "begin_time"
+    t.time "end_time"
+    t.integer "dininghall_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dininghall_id"], name: "index_menus_on_dininghall_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -68,5 +67,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_03_022838) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "menus", "dining_halls"
+  add_foreign_key "menus", "dininghalls"
 end
