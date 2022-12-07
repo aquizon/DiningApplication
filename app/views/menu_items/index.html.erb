@@ -45,8 +45,9 @@
 </div>
 
 <br>
-<p> Menu Hours: <%= Menu.get_menu_hours(params[:order])%>
-</p> 
+
+<p> Menu Hours: <%= Menu.get_menu_hours(params[:order]) %> </p> <%#changed from MenuItems%>
+
 <table>
     <thead>
         <tr>
@@ -84,5 +85,5 @@
 <br> 
 <%= link_to "Go to Dining Hall Hour Info", dininghalls_path%>
 <br>
-<%= link_to "Back", get_previous_path %>
+<%= link_to "Back", dininghalls_path %> <%# this will need to be linked to menu index page%>
 </div>

@@ -4,8 +4,6 @@ class MenuItem < ApplicationRecord
   validates :name, presence: true
   validates :calories, numericality: true, comparison: { greater_than_or_equal_to: 0 }
 
-
-  
   def self.sort_items_by(meal, filters)
     query = ""
     if !meal.nil? && meal != "meal_of_day"
