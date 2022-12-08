@@ -1,6 +1,12 @@
 
 <div>
 <h1>Menus</h1>
+<table  class='table'>
+    <thead> 
+        <tr>
+            <th> Meal of Day </th>
+        </tr>
+    </thead>
     <tbody>
         <tr>
         <% @menus.each do |m|%>
@@ -8,5 +14,7 @@
         </tr>
          <%end%>
     </tbody>
+</table>
+    <%# debugger%>
     <%= link_to "Back", dininghalls_path %> <%# this will need to be linked to menu index page%>
 </div>

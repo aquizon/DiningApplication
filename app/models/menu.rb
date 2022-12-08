@@ -37,7 +37,8 @@ class Menu < ApplicationRecord
       d.name
     end
     def self.sort_items_by(menu_id, filters)
-      menu = Menu.find(menu_id)
+        menu = Menu.find(menu_id) 
+  
       query = menu.menu_items
 
       filters.each do |filter|
