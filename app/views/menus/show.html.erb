@@ -71,7 +71,7 @@
 <%= link_to "Update Menu", edit_menu_path(@menu)%>
 <br>
 <%= button_to "Delete Item", menu_path(@menu), method: :delete %>
-<%= link_to "New Menu", new_menu_path %>
+<%= link_to "New Menu Item", new_menu_item_path%>
 <% end %>
 <br>
 <%= link_to "Back", menus_path(:menu_id => @menu.id) %>
