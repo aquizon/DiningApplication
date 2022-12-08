@@ -11,6 +11,6 @@ Background: The dininghall has a few items
 
 Scenario: Click on a dininghall for more details
     Given I am on the index page
-    When I click on "Frank Dining Hall"
+    When I click on "\"Frank Dining Hall\""
     Then I should be on the show dining hall page for "\"Frank Dining Hall\""
     And I should not see "4:45pm"
