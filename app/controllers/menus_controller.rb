@@ -21,14 +21,22 @@ class MenusController < ApplicationController
     end
 
     def filter
-      
       allergens = get_dietary_restrictions
-
+      @filters = []
+      allergens.each do |allergy|
+        if allergy != "vegan" && allergy != "vegetarian"
+          @filters << allergy.capitalize + " Free"
+        else
+          @filters << allergy.capitalize
+        end
+      end
+      if @filters.empty? 
+        @filters << "No Filters"
+      end
       @menu_items = Menu.sort_items_by(params[:menu_id], allergens)
     end
    
-    # EVERYTHING BELOW HERE IS UNTESTED SO CHECK THAT SHIT
-    # ALSO MAKE .HTML.ERBS 
+  
     def new
       @menu = Menu.new
     end
