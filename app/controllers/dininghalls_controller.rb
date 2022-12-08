@@ -6,6 +6,7 @@ class DininghallsController < ApplicationController
 
   def show
     @dininghall = Dininghall.find(params[:id])
+    @dininghalls = Dininghall.all.order(:name)
   end
 
   def new

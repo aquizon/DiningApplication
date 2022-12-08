@@ -1,0 +1,73 @@
+<h1>Menu</h1>
+
+    <tbody>
+        <tr>
+        <%# @menus.each do |m|%>
+        <%# put a pin in this, might not be possible to have tabs at the beginning without putting models code in view%>
+            <td> <%# link_to "#{m.meal_of_day}", menu_path(m.id)%> </td> 
+        </tr>
+         <%#end%>
+    </tbody>
+
+<div>
+  <%= form_with url: menu_items_path, local: true, method: :get do %> 
+    <%# url needs to change here%>
+    <%= check_box_tag "dairy", "dairy"%>
+    <%= label_tag "Dairy Free" %>
+    <br>
+    <%= check_box_tag "gluten", "gluten"%>
+    <%= label_tag "Gluten Free"%>
+    <br>
+    <%= check_box_tag "soy", "soy"%>
+    <%= label_tag "Soy Free"%>
+    <br>
+    <%= check_box_tag "nuts", "nuts"%>
+    <%= label_tag "Nut Free"%>
+    <br>
+    <%= check_box_tag "vegetarian", "vegetarian"%>
+    <%= label_tag "Vegetarian"%>
+    <br>
+    <%= check_box_tag "vegan", "vegan"%>
+    <%= label_tag "Vegan"%>
+    <br>
+    <%= hidden_field_tag "menu_id", "#{@menu.id}" %>
+    <%= submit_tag "Filter"%>
+  <% end %>
+</div>
+<br>
+
+<h2> Items Available </h2>
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Ingredients</th>
+            <th>Calories</th>
+            <th>Allergens</th>
+            <th>Diet</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr>
+          <%=@menu.menu_items.each do |m|%>
+            <td class="name"> <%= link_to "#{m.name}", menu_item_path(m.id)%> </td>
+            <td class="description"> <%= m.description%> </td>
+            <td class="ingredients"> <%= m.ingredients%> </td>
+            <td class="calories"> <%= m.calories%> </td>
+            <td class="allergens"> <%= m.allergens%> </td>
+            <td class="diet"> <%= m.diet%> </td>
+            <td class ="status"> <%=m.status%> </td>
+        </tr>
+        <%end%>
+    </tbody>
+</table>
+<% if user_signed_in? && current_user.admin %>
+<%= link_to "Update Menu Item", edit_menu_path(@menu)%>
+<br>
+<%= button_to "Delete Item", menu_path(@menu), method: :delete %>
+<% end %>
+<br>
+<%= link_to "Back", menus_path(:menu_id => @menu.id) %>

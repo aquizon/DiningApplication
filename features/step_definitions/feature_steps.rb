@@ -34,7 +34,6 @@ Given('I am on the index page') do
   visit root_path
 end
 
-
 Then('I should be on the show dining hall page for {string}') do |item|
     dining_hall = Dininghall.find_by_name(item)
     expect(page.current_path).to eq(dininghall_path(dining_hall.id))

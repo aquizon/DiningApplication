@@ -1,9 +1,10 @@
+
 <div>
 <h1>Menus</h1>
     <tbody>
         <tr>
         <%= @menus.each do |m|%>
-            <td> <%= link_to "#{m.meal_of_day}", menu_items_path(:current_menu => m.id)%> </td> 
+            <td> <%= link_to "#{m.meal_of_day}", menu_path(m.id)%> </td> 
         </tr>
          <%end%>
     </tbody>
