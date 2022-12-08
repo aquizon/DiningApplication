@@ -72,6 +72,7 @@
           null,
           1,
           0,
+          0,
           null,
           null,
           1,
@@ -133,6 +134,37 @@
         "lines": [
           1,
           1,
+          null
+        ]
+      },
+      "/Users/ShaneKnopp/Desktop/Everything/University/Senior Year/Fall 2022/COSC 415/Project/diningApplication/app/models/menu_item.rb": {
+        "lines": [
+          1,
+          null,
+          1,
+          1,
+          1,
+          null,
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          null,
+          0,
+          null,
+          null,
+          null,
           null
         ]
       },
@@ -301,42 +333,9 @@
         ],
         "branches": {
         }
-      },
-      "/Users/ShaneKnopp/Desktop/Everything/University/Senior Year/Fall 2022/COSC 415/Project/diningApplication/app/models/menu_item.rb": {
-        "lines": [
-          0,
-          null,
-          0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0
-        ],
-        "branches": {
-        }
       }
     },
-    "timestamp": 1670482477
+    "timestamp": 1670490339
   },
   "Cucumber Features": {
     "coverage": {
@@ -742,6 +741,6 @@
         ]
       }
     },
-    "timestamp": 1670485753
+    "timestamp": 1670485989
   }
 }
