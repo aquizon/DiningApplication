@@ -3,7 +3,6 @@ class MenuItemsController < ApplicationController
   def index
     allergens = get_dietary_restrictions
     @menu_items = MenuItem.sort_items_by(params[:current_menu], allergens)
-
   end
 
   def show
