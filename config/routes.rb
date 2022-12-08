@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/") 
   resources :menus
-  get ':menu', to: 'menus#filter', as: :filter
   resources :menu_items
   resources :dininghalls
   root "dininghalls#index"
+  get ':menu', to: 'menus#filter', as: :filter
   
 end
