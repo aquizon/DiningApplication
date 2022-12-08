@@ -10,7 +10,7 @@
     </tbody>
 
 <div>
-  <%= form_with url: menu_items_path, local: true, method: :get do %> 
+  <%= form_with url: filter_path(@menu), local: true, method: :get do %> 
     <%# url needs to change here%>
     <%= check_box_tag "dairy", "dairy"%>
     <%= label_tag "Dairy Free" %>
@@ -52,7 +52,10 @@
     <tbody>
         
         <tr>
-          <%@menu.menu_items.each do |m|%>
+        <% if @menu_items.nil? %>
+          <% @menu_items = @menu.menu_items%>
+        <%end%>
+          <% @menu_items.each do |m|%>
           <% session[:menu_id] = @menu.id %>
             <td class="name"> <%= link_to "#{m.name}", menu_item_path(m.id)%> </td>
             <td class="description"> <%= m.description%> </td>
@@ -66,9 +69,10 @@
     </tbody>
 </table>
 <% if user_signed_in? && current_user.admin %>
-<%= link_to "Update Menu Item", edit_menu_path(@menu)%>
+<%= link_to "Update Menu", edit_menu_path(@menu)%>
 <br>
-<%= button_to "Delete Item", menu_path(@menu), method: :delete %>
+<%= button_to "Delete Menu", menu_path(@menu), method: :delete %>
+<%= link_to "New Menu Item", new_menu_item_path%>
 <% end %>
 <br>
 <%= link_to "Back", menus_path(:menu_id => @menu.id) %>
