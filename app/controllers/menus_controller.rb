@@ -21,6 +21,7 @@ class MenusController < ApplicationController
     end
 
     def filter
+      #testing 
       allergens = get_dietary_restrictions
       @filters = []
       allergens.each do |allergy|
