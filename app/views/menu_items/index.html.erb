@@ -4,16 +4,18 @@
   <tr>
   <%# I think we can leave this bc it actually deals with the menu not items %>
     <td class="menusort"> 
-      <%= link_to "All Day Menu", menu_items_path(:order => nil)%> 
+      <%#=debugger%>
+      <%= link_to "All Day Menu", menu_items_path%> 
+
     </td>
     <td class="menusort"> 
-      <%= link_to "Breakfast Menu", menu_items_path(:order => "Breakfast")%> 
+      <%= link_to "Breakfast Menu", menu_items_path%> 
     </td>
     <td class="menusort"> 
-      <%= link_to "Lunch Menu", menu_items_path(:order => "Lunch")%> 
+      <%= link_to "Lunch Menu", menu_items_path%> 
     </td>
     <td class="menusort"> 
-      <%= link_to "Dinner Menu", menu_items_path(:order => "Dinner")%> 
+      <%= link_to "Dinner Menu", menu_items_path%> 
     </td>
   </tr>
 </table>
@@ -46,7 +48,7 @@
 
 <br>
 
-<p> Menu Hours: <%= Menu.get_menu_hours(params[:order]) %> </p> <%#changed from MenuItems%>
+<p> Menu Hours: <%#= Menu.get_menu_hours(params[:order]) %> </p> <%#changed from MenuItems%>
 
 <table>
     <thead>

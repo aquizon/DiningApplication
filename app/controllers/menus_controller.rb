@@ -1,6 +1,6 @@
 class MenusController < ApplicationController
     def index
-        @menus = Dininghall.menus #this needs to be tweaked or associated in seeds
+        @menus = Dininghall.find_by_name(params[:dhName]).menus
     end
 
     def show

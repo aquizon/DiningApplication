@@ -1,10 +1,8 @@
 class MenuItemsController < ApplicationController
   before_action :admin_logged_in?, only: [:new, :create, :destroy]
   def index
-    order = params[:order] || 'meal_of_day'
     allergens = get_dietary_restrictions
-    @menu_items = MenuItem.sort_items_by(order, allergens)
-
+    @menu_items = MenuItem.sort_items_by(params[:current_menu], allergens)
   end
 
   def show
