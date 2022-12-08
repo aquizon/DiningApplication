@@ -12,6 +12,11 @@ class Menu < ApplicationRecord
       end
     end
 
+    def self.get_dininghall_name(menu_id)
+      menu = Menu.find(menu_id)
+      d = Dininghall.find(menu.dininghall_id)
+      d.name
+    end
     def self.sort_items_by(menu_id, filters)
       menu = Menu.find(menu_id)
       query = menu.menu_items
