@@ -2,16 +2,16 @@
 <button><h1> <%= @dininghall.name %> </h1></button> <%#make this a dropdown with CSS (iteration 3)%>
     <div>
     <%chob = Dininghall.find_by_name("Chobani")%>
-    <%=link_to "Chobani", dininghall_path(chob.id)%>
+    <%=link_to "Chobani", dininghall_path(chob.id) unless chob.nil? %>
 
     <%coop = Dininghall.find_by_name("Coop")%>
-    <%=link_to "Coop", dininghall_path(coop.id)%>
+    <%=link_to "Coop", dininghall_path(coop.id) unless coop.nil? %>
 
     <%donny = Dininghall.find_by_name("Donnovan's Pub")%>
-    <%=link_to "Donnovan's Pub", dininghall_path(donny.id)%>
+    <%=link_to "Donnovan's Pub", dininghall_path(donny.id) unless donny.nil? %>
   
     <%frank = Dininghall.find_by_name("Frank Dining Hall")%>
-    <%=link_to "Frank Dining Hall", dininghall_path(frank.id)%>
+    <%=link_to "Frank Dining Hall", dininghall_path(frank.id) unless frank.nil? %>
     </div>
 </div>
 
@@ -25,3 +25,24 @@
 <% end %>
 <br>
 <%= link_to "Back", dininghalls_path %>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Hours</th>
+            <th>Breakfast Hours</th>
+            <th>Menu</th>
+        </tr>
+    </thead>
+    <tbody>
+        <%@dininghalls.each do |dh|%>
+        <tr>
+            <td> <%= link_to "#{dh.name}", dininghall_path(dh.id)%> </td>
+            <td> <%= dh.hours%> </td>
+            <td> <%= dh.breakfast_hours%> </td>
+            <td> <%= link_to "#{dh.menu}", menus_path(:dh_id => dh.id)%> </td>
+        </tr>
+        <%end%>
+    </tbody>
+</table>
