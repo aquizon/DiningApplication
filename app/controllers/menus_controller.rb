@@ -19,3 +19,4 @@ class MenusController < ApplicationController
           end
     end
 end
+

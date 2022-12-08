@@ -1,3 +1,4 @@
+
 class MenuItem < ApplicationRecord
  # set up habtm relationship to menu
   has_and_belongs_to_many :menus

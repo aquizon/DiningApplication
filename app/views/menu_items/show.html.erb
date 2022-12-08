@@ -1,3 +1,4 @@
+
 <h1> Menu Item </h1>
 
 <dl>
@@ -7,8 +8,8 @@
 <dt> Description </dt>
 <dd> <%= @menu_item.description %> </dd>
 
-<dt> Meal of day </dt>
-<dd> <%= @menu_item.meal_of_day %> </dd>
+<dt> Meal Available </dt>
+<dd> <%# @menu_item.meal_of_day %> </dd>
 
 <dt> Ingredients </dt>
 <dd> <%= @menu_item.ingredients %> </dd>
@@ -31,4 +32,5 @@
 <%= button_to "Delete Item", menu_item_path(@menu_item), method: :delete %>
 <% end %>
 <br>
+
 <%= link_to "Back", menu_items_path %>
