@@ -1,3 +1,4 @@
+
 class MenusController < ApplicationController
     def index
         if !params[:dh_id].nil?
@@ -62,3 +63,4 @@ class MenusController < ApplicationController
       end
     end
 end
+
