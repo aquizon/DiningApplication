@@ -1,0 +1,22 @@
+<%= menu_form.label :meal_of_day%>
+<%= menu_form.text_field :meal_of_day%>   
+<br>
+
+<%= menu_form.label :meal_start_time%>
+<%= menu_form.time_field :begin_time%>
+ 
+<br>
+<%= menu_form.label :meal_end_time%>
+<%= menu_form.time_field :end_time%>
+
+<br>
+
+<%=menu_form.select :dining_hall, ["Frank Dining Hall", "Coop", "Chobani", "Donovan's Pub"]%>
+
+<% @menu.menu_items.each do |i|%>
+    <%= menu_form.check_box_tag "#{i.name}", "#{i.name}"%>
+    <%= label_tag "#{i.name}" %>
+<% end%>
+<br>
+
+<%# SHOULD BE CHECK BOX W LOOP menu_form.select :menu_items, ["example", "testing"]%>
