@@ -1,3 +1,39 @@
 <%# New page that says filtered on + list filters 
     Just lists menu items that apply to filters 
     Clear button that sends you back to the menu show page %>
+<h1> Results Fitered by: 
+  <%= @filters.join(", ")%>
+</h1>
+<% if @menu_items.empty? %>
+    <p>No items match your filters</p>
+<%else%>
+ <table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Ingredients</th>
+            <th>Calories</th>
+            <th>Allergens</th>
+            <th>Diet</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <tr>
+        
+          <% @menu_items.each do |m|%>
+            <td class="name"> <%= link_to "#{m.name}", menu_item_path(m.id)%> </td>
+            <td class="description"> <%= m.description%> </td>
+            <td class="ingredients"> <%= m.ingredients%> </td>
+            <td class="calories"> <%= m.calories%> </td>
+            <td class="allergens"> <%= m.allergens%> </td>
+            <td class="diet"> <%= m.diet%> </td>
+            <td class ="status"> <%=m.status%> </td>
+        </tr>
+        <%end%>
+<%end%>
+    </tbody>
+</table>
+<%= link_to "Clear Filters", menu_path(params[:menu])%>

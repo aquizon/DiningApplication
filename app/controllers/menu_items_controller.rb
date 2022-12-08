@@ -1,3 +1,4 @@
+
 class MenuItemsController < ApplicationController
   before_action :admin_logged_in?, only: [:new, :create, :destroy]
   def index
