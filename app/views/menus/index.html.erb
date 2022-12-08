@@ -3,9 +3,10 @@
 <h1>Menus</h1>
     <tbody>
         <tr>
-        <%= @menus.each do |m|%>
+        <% @menus.each do |m|%>
             <td> <%= link_to "#{m.meal_of_day}", menu_path(m.id)%> </td> 
         </tr>
          <%end%>
     </tbody>
+    <%= link_to "Back", dininghalls_path %> <%# this will need to be linked to menu index page%>
 </div>

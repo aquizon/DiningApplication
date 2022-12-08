@@ -26,7 +26,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_03_022838) do
   create_table "menu_items", force: :cascade do |t|
     t.string "name"
     t.text "description"
-    t.string "meal_of_day"
     t.text "ingredients"
     t.integer "calories"
     t.text "allergens"
