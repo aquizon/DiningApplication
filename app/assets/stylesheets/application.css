@@ -13,3 +13,19 @@
  *= require_tree .
  *= require_self
  */
+ .body{
+    font-family:'Optima', sans-serif;
+ }
+ table{
+    width: 100%;
+ }
+
+ .header{
+    font-family: 'Optima', sans-serif;
+    font-weight: 400;
+    text-align: center;
+ }
+
+ .header_img{
+    display:flex;
+ }
