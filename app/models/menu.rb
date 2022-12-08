@@ -3,12 +3,31 @@ class Menu < ApplicationRecord
 
     belongs_to :dininghall
 
-    @@hours = {"All_Day" => "7:30am - 12:00am", "Breakfast" => "7:30am - 11:00am", "Lunch" => "11:00am - 4:00pm", "Dinner" => "4:00pm - 12:00am"}
-    def self.get_menu_hours(time_of_day)
-      if (time_of_day.nil?)
-        @@hours["All_Day"]
+    def get_time_str(time_obj)
+      am_pm = "AM"
+      hour = time_obj.hour
+      if (hour > 12) 
+        hour -= 12
+        am_pm = "PM"
+      end
+      hour = hour.to_s
+      min = time_obj.min.to_s
+      if (min == "0") 
+        min = "00"
+      end
+      hour + ":" + min + " " + am_pm 
+    end
+    def get_menu_hours
+      if (self.meal_of_day.nil?)
+        ""
+      # elsif (time_of_day == "All Day")
+      #   self.begin_time + " " + self.end_time
       else
-        @@hours[time_of_day]
+        begin_t = self.begin_time
+        end_t = self.end_time
+        begin_time_str = get_time_str(begin_t)
+        end_time_str = get_time_str(end_t)
+        begin_time_str + " - " + end_time_str
       end
     end
 
