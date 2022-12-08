@@ -56,6 +56,7 @@
           <% @menu_items = @menu.menu_items%>
         <%end%>
           <% @menu_items.each do |m|%>
+          <% session[:menu_id] = @menu.id %>
             <td class="name"> <%= link_to "#{m.name}", menu_item_path(m.id)%> </td>
             <td class="description"> <%= m.description%> </td>
             <td class="ingredients"> <%= m.ingredients%> </td>
