@@ -3,7 +3,6 @@
 </div>
 
 <h2> Hours of Operation: <%= @dininghall.hours %> </h2>
-<dd> Breakfast hours: <%= @dininghall.breakfast_hours %> </dd>
 <%# link_to "View Menu", @dininghall.menus_path%>
 
 <br>
@@ -13,23 +12,3 @@
 <br>
 <%= link_to "Back", dininghalls_path %>
 
-<table  class='table'>
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Hours</th>
-            <th>Breakfast Hours</th>
-            <th>Menu</th>
-        </tr>
-    </thead>
-    <tbody>
-        <%@dininghalls.each do |dh|%>
-        <tr>
-            <td> <%= link_to "#{dh.name}", dininghall_path(dh.id)%> </td>
-            <td> <%= dh.hours%> </td>
-            <td> <%= dh.breakfast_hours%> </td>
-            <td> <%= link_to "#{dh.menu}", menus_path(:dh_id => dh.id)%> </td>
-        </tr>
-        <%end%>
-    </tbody>
-</table>
