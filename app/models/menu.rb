@@ -11,4 +11,18 @@ class Menu < ApplicationRecord
         @@hours[time_of_day]
       end
     end
+
+    def self.sort_items_by(menu_id, filters)
+      menu = Menu.find(menu_id)
+      query = menu.menu_items
+
+      filters.each do |filter|
+        if filter == "vegan" || filter == "vegetarian"
+          query = query.where("diet LIKE ?", "%#{filter}%")
+        else
+          query = query.where("allergens NOT LIKE ?", "%#{filter}%")
+        end
+      end
+      query
+    end
 end

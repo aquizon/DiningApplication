@@ -19,6 +19,13 @@ class MenusController < ApplicationController
             @menu = Menu.find(params[:id])
           end
     end
+
+    def filter
+      
+      allergens = get_dietary_restrictions
+
+      @menu_items = Menu.sort_items_by(params[:menu_id], allergens)
+    end
    
     # EVERYTHING BELOW HERE IS UNTESTED SO CHECK THAT SHIT
     # ALSO MAKE .HTML.ERBS 
@@ -61,6 +68,19 @@ class MenusController < ApplicationController
           redirect_to menus_path(:dh_id => dh)
         end
       end
+    end
+
+    private
+
+    def get_dietary_restrictions
+      diets = ["dairy", "gluten", "soy", "nuts", "vegan", "vegetarian"]
+      filter = []
+      diets.each do |diet|
+        if !params[diet].nil?
+          filter << diet
+        end
+      end
+      filter
     end
 end
 
