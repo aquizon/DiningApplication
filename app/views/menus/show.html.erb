@@ -1,6 +1,5 @@
-
 <h1> <%= Menu.get_dininghall_name(params[:id]) %> <%= @menu.meal_of_day %> Menu</h1>
-
+<h4> Hours: <%= @menu.get_menu_hours %> </h4>
     <tbody>
         <tr>
         <%# @menus.each do |m|%>
@@ -75,5 +74,4 @@
 <%= link_to "New Menu Item", new_menu_item_path%>
 <% end %>
 <br>
-
 <%= link_to "Back", menus_path(:menu_id => @menu.id) %>
