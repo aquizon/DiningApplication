@@ -68,9 +68,10 @@
     </tbody>
 </table>
 <% if user_signed_in? && current_user.admin %>
-<%= link_to "Update Menu Item", edit_menu_path(@menu)%>
+<%= link_to "Update Menu", edit_menu_path(@menu)%>
 <br>
 <%= button_to "Delete Item", menu_path(@menu), method: :delete %>
+<%= link_to "New Menu", new_menu_path %>
 <% end %>
 <br>
 <%= link_to "Back", menus_path(:menu_id => @menu.id) %>
