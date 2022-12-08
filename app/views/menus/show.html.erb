@@ -30,7 +30,7 @@
     <%= check_box_tag "vegan", "vegan"%>
     <%= label_tag "Vegan"%>
     <br>
-
+    <%= hidden_field_tag "menu_id", "#{@menu.id}" %>
     <%= submit_tag "Filter"%>
   <% end %>
 </div>

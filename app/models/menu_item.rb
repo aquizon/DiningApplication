@@ -6,6 +6,7 @@ class MenuItem < ApplicationRecord
 
   def self.sort_items_by(current_menu, filters)
     query = Menu.find_by_id(current_menu).menu_items
+    
     #if !meal.nil? && meal != "meal_of_day"
     #  meal = meal.to_s 
     #  query = MenuItem.where("meal_of_day = ?", meal)
