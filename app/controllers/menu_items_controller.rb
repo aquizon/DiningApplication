@@ -2,7 +2,7 @@
 class MenuItemsController < ApplicationController
   before_action :admin_logged_in?, only: [:new, :create, :destroy]
   def index
-   allergens = get_dietary_restrictions
+   #allergens = get_dietary_restrictions
    @menu_items = MenuItem.all
   end
 
@@ -57,18 +57,11 @@ class MenuItemsController < ApplicationController
       format.html do
         # success message
         flash[:success] = 'Item removed successfully'
-        redirect_to menu_path(session[:menu_id])
+        redirect_to menu_path(session[:menu_id]) unless session[:menu_id].nil?
       end
     end
   end
   
- # def get_previous_path
-   # if request.referrer != Rails.root
-   #   return request.referrer 
-   # end
-   # return Rails.root
-  #end
-  #helper_method :get_previous_path
 
   private
 
@@ -118,16 +111,16 @@ class MenuItemsController < ApplicationController
 
 
 
-  def get_dietary_restrictions
-    diets = ["dairy", "gluten", "soy", "nuts", "vegan", "vegetarian"]
-    filter = []
-    diets.each do |diet|
-      if !params[diet].nil?
-        filter << diet
-      end
-    end
-    filter
-  end
+ # def get_dietary_restrictions
+   # diets = ["dairy", "gluten", "soy", "nuts", "vegan", "vegetarian"]
+   # filter = []
+   # diets.each do |diet|
+   #   if !params[diet].nil?
+    #    filter << diet
+    #  end
+  #  end
+  #  filter
+ # end
 
 
   def admin_logged_in?

@@ -84,13 +84,11 @@
    background-color: whitesmoke;
    border:2px solid #640c13;
    color: #640c13;
-   padding: 7px 13px;
+   padding: 10px 25px;
    text-align: center;
    display: inline-block;
-   border-radius: 13px;
-   width: 30%;
+   width: 40%;
    transition-duration: 0.4s;
-   margin-left: 20px;
  }
 
  .btn_menus:hover{
