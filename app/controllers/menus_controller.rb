@@ -6,7 +6,7 @@ class MenusController < ApplicationController
           dh_id = params[:dh_id]
           session[:dh_id] = params[:dh_id]
         else
-          menu = Menu.find(params[:menu_id])
+          menu = Menu.find(params[:menu_id])# unless params[:menu_id].nil?
           dh_id = menu.dininghall_id
           session[:dh_id] = dh_id
         end

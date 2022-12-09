@@ -99,3 +99,28 @@ When('I fill in the following:') do |table|
   When('I select checkbox {string}') do |cb|
     check(cb)
   end
+
+  Given('I am on the dininghalls index page') do
+    visit dininghalls_path
+  end
+  
+  Given('I am on the menu index page for {string}') do |string|
+    dh = Dininghall.find_by_name(string)
+    @dh = dh
+    visit menus_path(:dh_id => dh.id)
+  end
+  
+  Then('I should be on the new menu page') do
+    visit new_menu_path
+    expect(page.current_path).to eq(new_menu_path)
+  end
+
+  When('I put in {string} for {string}') do |value, field|
+    fill_in(field, with: value)
+  end
+  
+  Then('I should be on the menu show page for {string}') do |string|
+    m = Menu.find_by "meal_of_day = ?", string
+    expect(page.current_path).to eq(menu_path(m.id))
+  end
+  
