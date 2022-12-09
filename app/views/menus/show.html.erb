@@ -50,7 +50,7 @@
         </tr>
     </thead>
     <tbody>
-        
+        <%session[:menu_id]=@menu.id%>
         <tr>
         <% if @menu_items.nil? %>
           <% @menu_items = @menu.menu_items%>
@@ -69,7 +69,7 @@
 </table>
 <% if user_signed_in? && current_user.admin %>
 <%= button_to "Delete Menu", menu_path(@menu), method: :delete %>
-<%= link_to "New Menu Item", new_menu_item_path%>
+<%= link_to "New Menu Item", new_menu_item_path %>
 <% end %>
 <br>
 <%= link_to "Back", menus_path(:menu_id => @menu.id) %>

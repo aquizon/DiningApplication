@@ -23,9 +23,12 @@ class MenuItemsController < ApplicationController
 
   def create
     m = MenuItem.new(create_update_params)
+    
     if m.save
       flash[:notice] = "Menu Item #{m.name} successfully created"
-      redirect_to menu_items_path
+      menu = Menu.find(session[:menu_id])
+      menu.menu_items << m
+      redirect_to menu_path(session[:menu_id])
     else
       flash[:warning] = 'Menu Item could not be entered'
       redirect_to new_menu_item_path
@@ -68,7 +71,7 @@ class MenuItemsController < ApplicationController
   private
 
   def create_update_params
-    params.require(:menu_item).permit(:name, :description, :meal_of_day, :ingredients, :calories, :allergens, :diet, :status)
+    params.require(:menu_item).permit(:name, :description, :ingredients, :calories, :allergens, :diet, :status)
   end
 
   def get_dietary_restrictions
