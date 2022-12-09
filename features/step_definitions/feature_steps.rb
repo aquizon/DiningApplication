@@ -13,9 +13,8 @@ When('I click on {string}') do |link|
 end
 
 Then('I should be on the show page for {string}') do |item|
-    menu_item = MenuItem.find_by_name(item)
-    expect(page.current_path).to eq(menu_item_path(menu_item.id))
-
+  menu_item = MenuItem.find_by_name(item)
+  expect(page.current_path).to eq(menu_item_path(menu_item.id))
 end
 
 Given('these Dininghalls:') do |table|
@@ -30,10 +29,9 @@ Given('I am on the index page') do
 end
 
 Then('I should be on the show dining hall page for {string}') do |item|
-    dining_hall = Dininghall.find_by_name(item)
-    expect(page.current_path).to eq(dininghall_path(dining_hall.id))
-  end
-
+  dining_hall = Dininghall.find_by_name(item)
+  expect(page.current_path).to eq(dininghall_path(dining_hall.id))
+end
 
 Then('I should be on the show menu item page for {string}') do |item|
   menu_item = MenuItem.find_by_name(item)
@@ -51,94 +49,93 @@ When('I change the {string} to {string}') do |field, value|
 end
 
 When('I fill in the following:') do |table|
-    table.hashes.each do |form|
-      fill_in(form['Field'], with: form['Value'])
-    end
+  table.hashes.each do |form|
+    fill_in(form['Field'], with: form['Value'])
   end
+end
 
-  Then('I should be on the new dining hall page') do
-    expect(page.current_path).to eq(new_dininghall_path)
-  end
-  
-  Then('I should be on the index page') do
-    expect(page.current_path).to eq(root_path).or eq('/dininghalls')
+Then('I should be on the new dining hall page') do
+  expect(page.current_path).to eq(new_dininghall_path)
+end
 
-  end
-  
-  Then('I should be on the edit dining hall page for {string}') do |string|
-    dining_hall = Dininghall.find_by_name(string)
-    expect(page.current_path).to eq(edit_dininghall_path(dining_hall.id))
-  end
-  Then('I should be on the {string} page') do |string|
-    dining_hall = Dininghall.find_by_name(string)
-    expect(page.current_path).to eq(dininghall_path(dining_hall.id))
-  end
+Then('I should be on the index page') do
+  expect(page.current_path).to eq(root_path).or eq('/dininghalls')
+end
 
-  Given('these Users:') do |table|
-    table.hashes.each do |h|
-      u = User.new(h)
-      u.save
-    end
-  end
+Then('I should be on the edit dining hall page for {string}') do |string|
+  dining_hall = Dininghall.find_by_name(string)
+  expect(page.current_path).to eq(edit_dininghall_path(dining_hall.id))
+end
+Then('I should be on the {string} page') do |string|
+  dining_hall = Dininghall.find_by_name(string)
+  expect(page.current_path).to eq(dininghall_path(dining_hall.id))
+end
 
-  When('I login as {string} and {string}') do |string, string2|
-    fill_in 'Email', with: string
-    fill_in 'Password', with: string2
-    click_on 'Log in'
+Given('these Users:') do |table|
+  table.hashes.each do |h|
+    u = User.new(h)
+    u.save
   end
+end
 
-  Given('I am on the new dining hall page') do
-    visit new_dininghall_path
-  end
+When('I login as {string} and {string}') do |string, string2|
+  fill_in 'Email', with: string
+  fill_in 'Password', with: string2
+  click_on 'Log in'
+end
 
-  Given('I am on the the show menu item page for {string}') do |string|
-    menu_item = MenuItem.find_by_name(string)
-    visit menu_item_path(menu_item.id)
-  end
+Given('I am on the new dining hall page') do
+  visit new_dininghall_path
+end
 
-  When('I select checkbox {string}') do |cb|
-    check(cb)
-  end
+Given('I am on the the show menu item page for {string}') do |string|
+  menu_item = MenuItem.find_by_name(string)
+  visit menu_item_path(menu_item.id)
+end
 
-  Given('I am on the dininghalls index page') do
-    visit dininghalls_path
-  end
-  
-  Given('I am on the menu index page for {string}') do |string|
-    dh = Dininghall.find_by_name(string)
-    visit menus_path(:dh_id => dh.id)
-  end
-  
-  Then('I should be on the new menu page') do
-    visit new_menu_path
-    expect(page.current_path).to eq(new_menu_path)
-  end
+When('I select checkbox {string}') do |cb|
+  check(cb)
+end
 
-  When('I put in {string} for {string}') do |value, field|
-    fill_in(field, with: value)
-  end
-  
-  Then('I should be on the menu show page for {string}') do |string|
-    m = Menu.find_by "meal_of_day = ?", string
-    expect(page.current_path).to eq(menu_path(m.id))
-  end
+Given('I am on the dininghalls index page') do
+  visit dininghalls_path
+end
 
-  Given('these Menus with {string}:') do |string, table|
-    # table is a Cucumber::MultilineArgument::DataTable
-    fake_dh = Dininghall.new
-    fake_dh.name = "#{string}"
-    fake_dh.save!
-    table.hashes.each do |h|
-      fake_dh.menus.create!(h)
-    end
-  end
-  
-  Given('I am on the menu show page for {string}') do |string|
-    menu = Menu.where("meal_of_day = ?", string)
-    visit menu_path(menu[0].id)
-  end
+Given('I am on the menu index page for {string}') do |string|
+  dh = Dininghall.find_by_name(string)
+  visit menus_path(dh_id: dh.id)
+end
 
-  Then('I should be on the menus index page for {string}') do |string|
-    dh = Dininghall.where("name = ?", string)
-    visit menus_path(:dh_id => dh[0].id)
+Then('I should be on the new menu page') do
+  visit new_menu_path
+  expect(page.current_path).to eq(new_menu_path)
+end
+
+When('I put in {string} for {string}') do |value, field|
+  fill_in(field, with: value)
+end
+
+Then('I should be on the menu show page for {string}') do |string|
+  m = Menu.find_by 'meal_of_day = ?', string
+  expect(page.current_path).to eq(menu_path(m.id))
+end
+
+Given('these Menus with {string}:') do |string, table|
+  # table is a Cucumber::MultilineArgument::DataTable
+  fake_dh = Dininghall.new
+  fake_dh.name = string.to_s
+  fake_dh.save!
+  table.hashes.each do |h|
+    fake_dh.menus.create!(h)
   end
+end
+
+Given('I am on the menu show page for {string}') do |string|
+  menu = Menu.where('meal_of_day = ?', string)
+  visit menu_path(menu[0].id)
+end
+
+Then('I should be on the menus index page for {string}') do |string|
+  dh = Dininghall.where('name = ?', string)
+  visit menus_path(dh_id: dh[0].id)
+end

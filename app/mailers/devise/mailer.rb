@@ -1,2 +1,4 @@
-class Devise::Mailer
+module Devise
+  class Mailer
+  end
 end
