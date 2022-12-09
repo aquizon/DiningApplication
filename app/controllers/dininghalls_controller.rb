@@ -24,16 +24,31 @@ class DininghallsController < ApplicationController
     end
   end
 
-#  def edit
- #   @dininghall = Dininghall.find params[:id]
- # end
+  def edit
+    @dininghall = Dininghall.find params[:id]
+  end
 
- # def update
-  #  @dininghall = Dininghall.find params[:id]
- #   @dininghall.update(create_update_params)
-  #  flash[:notice] = "#{@dininghall.name} was successfully updated"
-  #  redirect_to dininghall_path(@dininghall)
- # end
+  def update
+    @dininghall = Dininghall.find params[:id]
+    @dininghall.update(create_update_params)
+    flash[:notice] = "#{@dininghall.name} was successfully updated"
+    redirect_to dininghall_path(@dininghall)
+  end
+   
+  def destroy
+      # load existing object again from URL param
+      dh = Dininghall.find(params[:id])
+      # debugger
+      # destroy object
+      dh.destroy
+      respond_to do |format|
+        format.html do
+          # success message
+          flash[:success] = 'Dining Hall removed successfully'
+          redirect_to dininghalls_path
+        end
+      end
+  end
 
   private
 
