@@ -35,7 +35,6 @@ Scenario: Create a new menu item
         | Field | Value | 
         | Name | milk | 
         | Description | milky | 
-        | Meal of day | breakfast | 
         | Ingredients | milk | 
         | Calories | 10 | 
         | Allergens | dairy | 

@@ -1,4 +1,4 @@
-<h1>New Dining Hall </h1>
+<h1 class="header">New Dining Hall </h1>
 
 <%= form_with model: @dininghall, local: true do |dininghall_form| %>
 <br> 
@@ -8,4 +8,4 @@
     <%= dininghall_form.submit "Create Dining Hall"%>
 <% end %>
 <br>
-<%= link_to "Back", dininghalls_path %>
+<%= link_to "Back", dininghalls_path, :class=>"back" %>

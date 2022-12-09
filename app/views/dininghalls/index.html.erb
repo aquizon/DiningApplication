@@ -1,6 +1,5 @@
 
 <div><h1 class="header" >Dining Halls</h1></div>
-
 <body class="body">
 <table class='table'>
     <thead>
@@ -15,8 +14,12 @@
         <tr>
             <td> <%= link_to "#{dh.name}", dininghall_path(dh.id)%> </td>
             <td> <%= dh.hours%> </td>
+<<<<<<< HEAD
             <td> <%= link_to "View Menus", menus_path(:dh_id => dh.id)%> </td>
             <%session[:dininghall_id] = dh.id%>
+=======
+            <td> <%= link_to "View Menus", menus_path(:dh_id => dh.id), :class => "btn_menus"%> </td>
+>>>>>>> 87a635b54120134455ecd7a8fdf9b09e2851b455
         </tr>
         <%end%>
     </tbody>
