@@ -45,7 +45,7 @@ class MenusController < ApplicationController
   
     def create
       m = Menu.new(create_update_params)
-      m.dininghall_id = session[:dininghall_id]
+      m.dininghall_id = session[:dh_id]
       if m.save
         flash[:notice] = "Menu #{m.meal_of_day} successfully created"
         redirect_to menu_path(m.id)
