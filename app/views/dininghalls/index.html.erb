@@ -1,4 +1,10 @@
-
+<% if flash[:success] %>
+    <div>
+      <div>
+        <%= "#{flash[:success]}" %>
+      </div>
+    </div>
+<% end %>
 <div><h1 class="header" >Dining Halls</h1></div>
 <body class="body">
 <table class='table'>
