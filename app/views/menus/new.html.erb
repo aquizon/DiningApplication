@@ -1,14 +1,5 @@
-<<<<<<< HEAD
 <h1>New Menu </h1>
 
-=======
-
-<h1 class="header">New Menu </h1>
-<%# must set up associations %>
-<%# Must be able to add to a menu 
- Maybe a select box that lets you choose dining hall and meal(s) %>
- <%# check box handled in the new method %>
->>>>>>> 87a635b54120134455ecd7a8fdf9b09e2851b455
 <%= form_with model: @menu, local: true do |menu_form| %>
 <br> 
 
@@ -18,11 +9,4 @@
     <%= menu_form.submit "Create Menu"%>
 <% end %>
 <br>
-<<<<<<< HEAD
 <%# link_to "Back", dininghall_path(session[:dininghall_id]) %>
-=======
-
-<%= link_to "Back", menu_items_path, :class=>"back"%>
-<%# need to change to menus_path somehow %>
-
->>>>>>> 87a635b54120134455ecd7a8fdf9b09e2851b455
