@@ -3,7 +3,6 @@
 </div>
 
 <h2> Hours of Operation: <%= @dininghall.hours %> </h2>
-<% link_to "View Menu", @dininghall.menus_path%>
 <br>
 <% if user_signed_in? && current_user.admin %>
 <%= link_to "Update Dininghall", edit_dininghall_path(@dininghall)%>
