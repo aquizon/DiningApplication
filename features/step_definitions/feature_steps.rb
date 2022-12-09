@@ -95,3 +95,7 @@ When('I fill in the following:') do |table|
     menu_item = MenuItem.find_by_name(string)
     visit menu_item_path(menu_item.id)
   end
+
+  When('I select checkbox {string}') do |cb|
+    check(cb)
+  end

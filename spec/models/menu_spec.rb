@@ -40,6 +40,8 @@ RSpec.describe Menu, type: :model do
       time = Time.new(2022, 12,3, 13, 30, 0, "+09:00")
       menu = Menu.new
       expect(menu.get_time_str(time)).to eq("1:30 PM")
+      time = Time.new(2022, 12,3, 13, 0, 0, "+09:00")
+      expect(menu.get_time_str(time)).to eq("1:00 PM")
     end 
     it "should correctly return the dining hall name" do 
       expect(Menu.get_dininghall_name(1)).to eq("Frank Dining Hall")

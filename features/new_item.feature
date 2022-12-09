@@ -37,11 +37,11 @@ Scenario: Create a new menu item
         | Description | milky | 
         | Ingredients | milk | 
         | Calories | 10 | 
-        | Allergens | dairy | 
-        | Diet | Vegetarian | 
-
+    When I select checkbox "dairy"
+    When I select checkbox "vegetarian"
     And I press "Create Menu Item" 
     Then I should be on the menu index page 
+    Given I am on the MenusIndex page
     And I should see "Menu Item milk successfully created"
     And I should see "milk" 
     And I should see that "milk" is made of "milk"
