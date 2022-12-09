@@ -1,21 +1,17 @@
 
 <div>
-<h1>Menus</h1>
+<h1 class="header">Menus</h1>
 <body class="body">
-<table  class='table'>
-    <thead> 
-        <tr>
-            <th> Meal of Day </th>
-        </tr>
-    </thead>
+<h4 class="center">Meal of Day: </h4>
+<table>
     <tbody>
-        <tr>
+    <div class = "meal_container">
         <% @menus.each do |m|%>
-            <td> <%= link_to "#{m.meal_of_day}", menu_path(m.id)%> </td> 
-        </tr>
+            <%= link_to "#{m.meal_of_day}", menu_path(m.id), :class => "btn_sign"%>
          <%end%>
+    </div>
     </tbody>
 </table>
-    <%= link_to "Back", dininghalls_path %> <%# this will need to be linked to menu index page%>
+    <%= link_to "Back", dininghalls_path, :class=>"back"%> <%# this will need to be linked to menu index page%>
 </body>
 </div>

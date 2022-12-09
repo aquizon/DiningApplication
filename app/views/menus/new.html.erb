@@ -1,4 +1,4 @@
-<h1>New Menu </h1>
+<h1 class="header">New Menu </h1>
 <%# must set up associations %>
 <%# Must be able to add to a menu 
  Maybe a select box that lets you choose dining hall and meal(s) %>
@@ -11,5 +11,5 @@
     <%= menu_form.submit "Create Menu"%>
 <% end %>
 <br>
-<%= link_to "Back", menu_items_path %>
+<%= link_to "Back", menu_items_path, :class=>"back"%>
 <%# need to change to menus_path somehow %>
