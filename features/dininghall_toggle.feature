@@ -14,5 +14,6 @@ Scenario: Switch from Chobani to Frank
     Given I am on the index page
     And I press "Chobani"
     Then I should be on the "\"Chobani\"" page
+    And I press "Back"
     And I press "Frank Dining Hall"
     Then I should be on the "\"Frank Dining Hall\"" page
