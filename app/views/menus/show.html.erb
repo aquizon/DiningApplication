@@ -1,5 +1,13 @@
+<% if flash[:success] %>
+    <div>
+      <div>
+        <%= "#{flash[:success]}" %>
+      </div>
+    </div>
+<% end %>
 <h1 class="header"> <%= Menu.get_dininghall_name(params[:id]) %> <%= @menu.meal_of_day %> Menu</h1>
 <h4 class="center"> Hours: <%= @menu.get_menu_hours %> </h4>
+<%session[:menu_id]=@menu.id%>
     <tbody>
         <tr>
         <%# @menus.each do |m|%>
@@ -54,7 +62,6 @@
         </tr>
     </thead>
     <tbody>
-        <%session[:menu_id]=@menu.id%>
         <tr>
         <% if @menu_items.nil? %>
           <% @menu_items = @menu.menu_items%>

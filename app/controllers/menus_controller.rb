@@ -1,7 +1,7 @@
 
 class MenusController < ApplicationController
-    def index
-        
+    before_action :admin_logged_in?, only: [:new, :create, :destroy]
+    def index  
         if !params[:dh_id].nil?
           dh_id = params[:dh_id]
           session[:dh_id] = params[:dh_id]
@@ -47,7 +47,7 @@ class MenusController < ApplicationController
   
     def create
       m = Menu.new(create_update_params)
-      m.dininghall_id = session[:dininghall_id]
+      m.dininghall_id = session[:dh_id]
       if m.save
         flash[:notice] = "Menu #{m.meal_of_day} successfully created"
         redirect_to menu_path(m.id)

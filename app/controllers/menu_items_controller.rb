@@ -25,8 +25,8 @@ class MenuItemsController < ApplicationController
     m.diet = get_diets
     if m.save
       flash[:notice] = "Menu Item #{m.name} successfully created"
-      associate_items(session[:menu_id], m)
-      redirect_to menu_path(session[:menu_id])
+      associate_items(session[:menu_id], m) unless session[:menu_id].nil?
+      redirect_to menu_path(session[:menu_id]) unless session[:menu_id].nil?
     else
       flash[:warning] = 'Menu Item could not be entered'
       redirect_to new_menu_item_path
@@ -57,7 +57,7 @@ class MenuItemsController < ApplicationController
       format.html do
         # success message
         flash[:success] = 'Item removed successfully'
-        redirect_to menu_path(session[:menu_id])
+        redirect_to menu_path(session[:menu_id]) unless session[:menu_id].nil?
       end
     end
   end

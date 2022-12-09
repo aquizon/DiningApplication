@@ -1,4 +1,10 @@
-
+<% if flash[:success] %>
+    <div>
+      <div>
+        <%= "#{flash[:success]}" %>
+      </div>
+    </div>
+<% end %>
 <div><h1 class="header" >Dining Halls</h1></div>
 <body class="body">
 <table class='table'>
@@ -15,7 +21,7 @@
             <td> <%= link_to "#{dh.name}", dininghall_path(dh.id)%> </td>
             <td> <%= dh.hours%> </td>
             <td> <%= link_to "View Menus", menus_path(:dh_id => dh.id), :class=>"btn_menus"%> </td>
-            <%session[:dininghall_id] = dh.id%>
+            <%session[:dh_id] = dh.id%>
         </tr>
         <%end%>
     </tbody>
