@@ -21,8 +21,9 @@ class Menu < ApplicationRecord
       if (self.meal_of_day.nil?)
         ""
       else
-        begin_t = self.begin_time
-        end_t = self.end_time
+        begin_t = self.begin_time 
+        end_t = self.end_time 
+        return "" if (begin_t.nil? || end_t.nil?)
         begin_time_str = get_time_str(begin_t)
         end_time_str = get_time_str(end_t)
         begin_time_str + " - " + end_time_str

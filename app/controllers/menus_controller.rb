@@ -70,7 +70,7 @@ class MenusController < ApplicationController
       respond_to do |format|
         format.html do
           # success message
-          flash[:success] = 'Menu removed successfully'
+          flash[:alert] = 'Menu removed successfully'
           redirect_to menus_path(:dh_id => dh)
         end
       end

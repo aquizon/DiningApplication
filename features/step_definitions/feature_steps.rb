@@ -99,3 +99,33 @@ When('I fill in the following:') do |table|
   When('I select checkbox {string}') do |cb|
     check(cb)
   end
+
+  Given('these Menus:') do |table|
+    # table is a Cucumber::MultilineArgument::DataTable
+    fake_dh = Dininghall.new
+    fake_dh.name = "Frank Dining Hall"
+    fake_dh.save!
+    table.hashes.each do |h|
+      fake_dh.menus.create!(h)
+    end
+  end
+
+  Given('these Menus with {string}:') do |string, table|
+    # table is a Cucumber::MultilineArgument::DataTable
+    fake_dh = Dininghall.new
+    fake_dh.name = "#{string}"
+    fake_dh.save!
+    table.hashes.each do |h|
+      fake_dh.menus.create!(h)
+    end
+  end
+  
+  Given('I am on the menu show page for {string}') do |string|
+    menu = Menu.where("meal_of_day = ?", string)
+    visit menu_path(menu[0].id)
+  end
+
+  Then('I should be on the menus index page for {string}') do |string|
+    dh = Dininghall.where("name = ?", string)
+    visit menus_path(:dh_id => dh[0].id)
+  end
