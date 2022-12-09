@@ -12,11 +12,6 @@ When('I click on {string}') do |link|
   click_link(link)
 end
 
-
-Then('I should be on the Menu Item show page') do
-  expect(page.current_path).to eq(menu_item_path)
-end
-
 Then('I should be on the show page for {string}') do |item|
     menu_item = MenuItem.find_by_name(item)
     expect(page.current_path).to eq(menu_item_path(menu_item.id))
