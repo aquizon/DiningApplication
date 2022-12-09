@@ -21,10 +21,10 @@ steak = MenuItem.create!(name: "Steak", description: "Grilled Wagyu steak",  ing
 # debugger
 Dininghall.destroy_all
 
-frank = Dininghall.create!(name: "Frank Dining Hall", hours: "7:30am - 12:00am", menu: "Current Menu")
-coop = Dininghall.create!(name: "Coop", hours: "7:30am - 12:00am", menu: "Current Menu")
-donny = Dininghall.create!(name: "Donnovan's Pub", hours: "7:30am - 12:00am", menu: "Current Menu")
-chobe = Dininghall.create!(name: "Chobani", hours: "7:30am - 12:00am", menu: "Current Menu")
+frank = Dininghall.create!(name: "Frank Dining Hall", hours: "7:30am - 12:00am")
+coop = Dininghall.create!(name: "Coop", hours: "7:30am - 12:00am")
+donny = Dininghall.create!(name: "Donnovan's Pub", hours: "7:30am - 12:00am")
+chobe = Dininghall.create!(name: "Chobani", hours: "7:30am - 12:00am")
 
 User.create!(:email => 'admin@colgate.edu', :admin => true, :password => "Colgate13")
 

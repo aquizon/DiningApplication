@@ -35,18 +35,10 @@ class DininghallsController < ApplicationController
     redirect_to dininghall_path(@dininghall)
   end
 
-  def get_previous_path
-    if request.referrer != Rails.root
-      return request.referrer 
-    end
-    return Rails.root
-  end
-  helper_method :get_previous_path
-
   private
 
   def create_update_params
-    params.require(:dininghall).permit(:name, :hours, :time, :menu)
+    params.require(:dininghall).permit(:name, :hours)
   end
 end
 
