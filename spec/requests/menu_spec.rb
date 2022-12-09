@@ -26,22 +26,5 @@ RSpec.describe "menu items control testing" do
         get new_menu_item_path
         expect(response).to have_http_status(302)
     end
-
-    it "GET /menu_items: happy path redirects to index on successful create" do
-        m = MenuItem.new
-        expect(MenuItem).to receive(:new).and_return(m)
-        expect(m).to receive(:save).and_return(true)
-        post menu_items_path, params: {menu_item: {name: "test menu item"}}
-        expect(response).to have_http_status(:redirect)
-        expect(response).to redirect_to(menu_items_path)
-    end
-
-    it "GET /menu_items: sad path rerender the new book form an error" do
-        m = MenuItem.new
-        expect(MenuItem).to receive(:new).and_return(m)
-        expect(m).to receive(:save).and_return(false)
-        post menu_items_path, params: {menu_item: {name: "test menu item"}}
-        expect(response).to have_http_status(:ok)
-    end
 end
 
