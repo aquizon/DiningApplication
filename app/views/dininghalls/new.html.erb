@@ -1,3 +1,10 @@
+<% if flash[:warning] %>
+    <div>
+      <div>
+        <%= "#{flash[:warning]}" %>
+      </div>
+    </div>
+<% end %>
 <h1 class="header">New Dining Hall </h1>
 
 <%= form_with model: @dininghall, local: true do |dininghall_form| %>
@@ -5,7 +12,7 @@
 
     <%= render 'form_template', dininghall_form: dininghall_form%>
     <br>
-    <%= dininghall_form.submit "Create Dining Hall"%>
+    <%= dininghall_form.submit "Create Dining Hall", :class=>"btn_sign"%>
 <% end %>
 <br>
 <%= link_to "Back", dininghalls_path, :class=>"back" %>

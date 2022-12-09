@@ -2,12 +2,16 @@
 <h1 class="header"> <%= @dininghall.name %> </h1>
 </div>
 
-<h2> Hours of Operation: <%= @dininghall.hours %> </h2>
-<% link_to "View Menu", @dininghall.menus_path%>
+<h2 class="center"> Hours of Operation: <%= @dininghall.hours %> </h2>
 <br>
 <% if user_signed_in? && current_user.admin %>
-<%= link_to "Update Dininghall", edit_dininghall_path(@dininghall)%>
+
+<%= link_to "Update Dining Hall", edit_dininghall_path(@dininghall), :class => "btn_sign"%>
+<br>
+<%= button_to "Delete Dining Hall", dininghall_path(@dininghall), method: :delete, :class => "btn_cancel"%>
+
 <% end %>
 <br>
+
 <%= link_to "Back", dininghalls_path, :class=>"back" %>
 

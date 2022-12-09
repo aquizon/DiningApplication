@@ -1,3 +1,10 @@
+<% if flash[:warning] %>
+    <div>
+      <div>
+        <%= "#{flash[:warning]}" %>
+      </div>
+    </div>
+<% end %>
 <h1 class="header">New Menu Item</h1>
 
 <%= form_with model: @menu_item, local: true do |item_form| %>
@@ -9,5 +16,5 @@
     <%= item_form.submit "Create Menu Item", :class=>"btn_sign"%>
 <% end %>
 <br>
-<%= link_to "Back", menu_path(session[:menu_id]), :class =>"back" %>
+<%= link_to "Back", (menu_path(session[:menu_id]) unless session[:menu_id].nil?), :class =>"back" %>
 

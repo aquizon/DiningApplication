@@ -11,10 +11,11 @@
     <%= render 'form_template', menu_form: menu_form%>
     <br>
     
-    <%= menu_form.submit "Create Menu"%>
+    <%= menu_form.submit "Create Menu", :class=>"btn_sign"%>
 <% end %>
 <br>
 
-<%= link_to "Back", menu_items_path, :class=>"back"%>
-<%# need to change to menus_path somehow %>
+
+<%= link_to "Back", menus_path(:dh_id => session[:dh_id]), :class=>"back"%>
+
 
