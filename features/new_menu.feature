@@ -6,7 +6,7 @@ Feature: User can create a new menu item
 Background: The dininghall has no menus
     Given these Dininghalls:
         |name              |hours                                             |
-        |Frank Dining Hall | 7:30am - 12:00am |
+        | Frank Dining Hall | 7:30am - 12:00am |
         | Coop | 7:30am - 12:00am |
     Given these Users:
       | email | password | admin |

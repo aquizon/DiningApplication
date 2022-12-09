@@ -106,7 +106,6 @@ When('I fill in the following:') do |table|
   
   Given('I am on the menu index page for {string}') do |string|
     dh = Dininghall.find_by_name(string)
-    @dh = dh
     visit menus_path(:dh_id => dh.id)
   end
   
