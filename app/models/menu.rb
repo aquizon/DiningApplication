@@ -20,8 +20,6 @@ class Menu < ApplicationRecord
     def get_menu_hours
       if (self.meal_of_day.nil?)
         ""
-      # elsif (time_of_day == "All Day")
-      #   self.begin_time + " " + self.end_time
       else
         begin_t = self.begin_time
         end_t = self.end_time
