@@ -49,18 +49,28 @@ RSpec.describe "create page", type: :feature do
     click_on 'Create Dining Hall'
     expect(page.current_path).to eq(dininghalls_path)
     expect(page).to have_content('Test Spec')
+    click_on 'View Menus'
+    click_on 'Create New Menu'
+    fill_in 'Meal of day', with: 'Late night'
+    click_on 'Create Menu'
+    expect(page).to have_content('Late night')
   end
 
   it 'should handle failure to create a menu' do
     click_on 'New Dining Hall'
     fill_in 'Name', with: 'Test Spec'
     fill_in 'Hours', with: '9-5'
-    d = Dininghall.new
-    expect(d).to receive(:save) { nil }
-    allow(Dininghall).to receive(:new) { d }
     click_on 'Create Dining Hall'
-    expect(page).to have_content('Dining hall could not be entered')
-    expect(page.current_path).to eq(new_dininghall_path)
+    expect(page.current_path).to eq(dininghalls_path)
+    expect(page).to have_content('Test Spec')
+    click_on 'View Menus'
+    click_on 'Create New Menu'
+    m = Menu.new
+    expect(m).to receive(:save) { nil }
+    allow(Menu).to receive(:new) { m }
+    click_on 'Create Menu'
+    expect(page).to have_content('Menu could not be entered')
+    expect(page.current_path).to eq(new_menu_path)
   end  
 
   it 'should handle failure to create a menu item' do
