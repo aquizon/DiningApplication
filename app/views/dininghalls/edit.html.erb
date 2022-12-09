@@ -1,4 +1,4 @@
-<h2>Edit Dininghall </h2>
+<h2 class="header">Edit Dininghall </h2>
 
 <%= form_with model: @dininghall, method: :put, local: true do |dininghall_form|%>
     <%= render 'form_template', dininghall_form: dininghall_form%>
@@ -8,4 +8,4 @@
     <%= dininghall_form.submit "Update Dininghall" %>
 <% end %>
 <br>
-<%= link_to "Back", dininghall_path %>
+<%= link_to "Back", dininghall_path, :class=>"back" %>

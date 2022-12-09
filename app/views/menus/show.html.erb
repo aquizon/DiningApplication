@@ -1,4 +1,5 @@
-<h1> <%= Menu.get_dininghall_name(params[:id]) %> <%= @menu.meal_of_day %> Menu</h1>
+<body class = "body">
+<h1 class="header"> <%= Menu.get_dininghall_name(params[:id]) %> <%= @menu.meal_of_day %> Menu</h1>
 <h4> Hours: <%= @menu.get_menu_hours %> </h4>
     <tbody>
         <tr>
@@ -68,8 +69,13 @@
     </tbody>
 </table>
 <% if user_signed_in? && current_user.admin %>
-<%= button_to "Delete Menu", menu_path(@menu), method: :delete %>
-<%= link_to "New Menu Item", new_menu_item_path %>
+<%= link_to "Update Menu", edit_menu_path(@menu), :class=>"btn_sign" %>
+<%= link_to "New Menu Item", new_menu_item_path, :class=>"btn_sign"%>
+<br>
+<%= button_to "Delete Menu", menu_path(@menu), method: :delete, :class=>"btn_cancel" %>
 <% end %>
 <br>
-<%= link_to "Back", menus_path(:menu_id => @menu.id) %>
+<br>
+<%= link_to "Back", menus_path(:menu_id => @menu.id), :class=>"back" %>
+</body>
+

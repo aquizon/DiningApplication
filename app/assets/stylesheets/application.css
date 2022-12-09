@@ -15,17 +15,113 @@
  */
  .body{
     font-family:'Optima', sans-serif;
+    background-color: #640c1302;
  }
  table{
     width: 100%;
  }
 
+ th{
+   font-size: 250;
+ }
+
+ .meals{
+   font-size: 200;
+   font-weight: 200;
+   color:#640c13;
+ }
+ .link{
+   color: #640c13;
+ }
+
  .header{
     font-family: 'Optima', sans-serif;
-    font-weight: 400;
+    font-weight: 600;
     text-align: center;
  }
 
  .header_img{
     display:flex;
+ }
+
+ .btn_cancel{
+   background-color: #640c13; /* Maroon */
+   border: none;
+   color: white;
+   padding: 15px 32px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   font-size: 16px;
+   /*border-radius: 12px;*/
+   width: 13%;
+   transition-duration: 0.4s;
+ }
+
+ .btn_menus{
+   background-color: whitesmoke;
+   border:2px solid #640c13;
+   color: #640c13;
+   padding: 7px 13px;
+   text-align: center;
+   display: inline-block;
+   border-radius: 13px;
+   width: 30%;
+   transition-duration: 0.4s;
+ }
+
+ .btn_menus:hover{
+   background-color: #640c13;
+   border:2px solid whitesmoke;
+   color: whitesmoke;
+ }
+
+ .btn_sign{ 
+   background-color: white;
+   border: 2px solid #640c13;
+   color: #640c13;
+   padding: 15px 32px;
+   text-align: center;
+   display: inline-block;
+   font-size: 16px;
+   /*border-radius: 12px;*/
+   width: 13%;
+   transition-duration: 0.4s;
+ }
+
+ .btn_sign:hover{
+   background-color: #640c13; /* Maroon */
+   border: none;
+   color: white;
+ }
+
+ .btn_cancel:hover{
+   background-color: white;
+   border: 2px solid #640c13;
+   color: #640c13;
+ }
+
+ .center{
+   text-align: center;
+ }
+ .meal_container{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100px;
+ }
+ .back{
+   height: 200 px;
+   width: auto;
+   background-color: #640c13;
+   color: white;
+   padding: 7px 7px;
+   border-radius: 10%;
+   transition-duration: 0.4s;
+ }
+
+ .back:hover{
+   background-color: white;
+   color: #640c13;
+   border-radius: 2px solid #640c13;
  }

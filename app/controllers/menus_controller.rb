@@ -1,4 +1,3 @@
-
 class MenusController < ApplicationController
     def index
         if !params[:dh_id].nil?
