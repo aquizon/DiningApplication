@@ -11,7 +11,7 @@ class MenuItemsController < ApplicationController
   def show
     if (MenuItem.where(id: params[:id]).empty?)
       flash[:notice] = "Menu Item does not exist"
-      redirect_to menu_items_path
+      redirect_to menu_path(session[:menu_id])
     else
       @menu_item = MenuItem.find(params[:id])
     end
@@ -55,7 +55,7 @@ class MenuItemsController < ApplicationController
       format.html do
         # success message
         flash[:success] = 'Item removed successfully'
-        redirect_to menu_items_path(params[:order])
+        redirect_to menu_path(session[:menu_id])
       end
     end
   end
