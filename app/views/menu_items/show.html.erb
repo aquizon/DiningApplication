@@ -8,8 +8,6 @@
 <dt> Description </dt>
 <dd> <%= @menu_item.description %> </dd>
 
-<dt> Meal Available </dt>
-<dd> <%# @menu_item.meal_of_day %> </dd>
 
 <dt> Ingredients </dt>
 <dd> <%= @menu_item.ingredients %> </dd>
@@ -33,4 +31,4 @@
 <% end %>
 <br>
 
-<%= link_to "Back", menu_path(session[:menu_id]) unless session[:menu_id].nil?, :class=>"back" %>
+<%= link_to "Back", menu_path(session[:menu_id]) unless session[:menu_id].nil? %>
