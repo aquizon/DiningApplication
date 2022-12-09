@@ -11,7 +11,7 @@ class MenusController < ApplicationController
         @menus = Dininghall.find(dh_id).menus
     end
 
-    def show # this needs to be where filtering happens 
+    def show 
         if (Menu.where(id: params[:id]).empty?)
             flash[:notice] = "Menu does not exist"
             redirect_to menus_path
@@ -53,9 +53,9 @@ class MenusController < ApplicationController
       end
     end
   
-    def edit
-      @menu= Menu.find params[:id]
-    end
+   # def edit
+    #  @menu= Menu.find params[:id]
+   # end
   
     def destroy
       # load existing object again from URL param
