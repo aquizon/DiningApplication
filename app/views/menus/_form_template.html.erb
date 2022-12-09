@@ -10,8 +10,8 @@
 <%= menu_form.time_field :end_time%>
 
 <br>
-
-<%=menu_form.select :dining_hall, ["Frank Dining Hall", "Coop", "Chobani", "Donovan's Pub"]%>
+<%debugger%>
+<%menu_form.select :dining_hall, ["Frank Dining Hall", "Coop", "Chobani", "Donovan's Pub"]%>
 
 <% @menu.menu_items.each do |i|%>
     <%= menu_form.check_box_tag "#{i.name}", "#{i.name}"%>
