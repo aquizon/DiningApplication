@@ -35,7 +35,9 @@
   <% end %>
 </div>
 <br>
-
+<% if (@menu.menu_items.empty?) %>
+    <h4> No Items Available </h4>
+<% else %>
 <h2> Items Available </h2>
 <table  class='table'>
     <thead>
@@ -67,6 +69,7 @@
         <%end%>
     </tbody>
 </table>
+<% end %>
 <% if user_signed_in? && current_user.admin %>
 <%= button_to "Delete Menu", menu_path(@menu), method: :delete %>
 <%= link_to "New Menu Item", new_menu_item_path %>
