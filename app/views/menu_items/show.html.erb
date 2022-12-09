@@ -31,4 +31,5 @@
 <% end %>
 <br>
 
-<%= link_to "Back", menu_path(session[:menu_id]) unless session[:menu_id].nil? %>
+
+<%=link_to "Back", (menu_path(session[:menu_id]) unless session[:menu_id].nil?), :class =>"back"%>
