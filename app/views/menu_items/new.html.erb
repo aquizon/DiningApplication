@@ -1,3 +1,10 @@
+<% if flash[:warning] %>
+    <div>
+      <div>
+        <%= "#{flash[:warning]}" %>
+      </div>
+    </div>
+<% end %>
 <h1 class="header">New Menu Item</h1>
 
 <%= form_with model: @menu_item, local: true do |item_form| %>

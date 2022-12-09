@@ -57,7 +57,7 @@ class MenuItemsController < ApplicationController
       format.html do
         # success message
         flash[:success] = 'Item removed successfully'
-        redirect_to menu_path(session[:menu_id])
+        redirect_to menu_path(session[:menu_id]) unless session[:menu_id].nil?
       end
     end
   end
