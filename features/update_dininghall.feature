@@ -5,9 +5,9 @@ Feature: User can update an existing dining hall
 
 Background: The dininghall has a few items
     Given these Dininghalls:
-        |name              |hours                                              |breakfast_hours|menu                             |
-        |"Frank Dining Hall" | "7:30am - 12:00am" | breakfast_hours: "7:00am - 10:00am" | "Current Menu"|
-        | "Coop" | "7:30am - 12:00am" | breakfast_hours: "7:00am - 10:00am" | "Current Menu"|
+        |name              |hours                                              |menu                             |
+        |"Frank Dining Hall" | "7:30am - 12:00am" | "Current Menu"|
+        | "Coop" | "7:30am - 12:00am" | "Current Menu"|
     Given these Users:
       | email | password | admin |
       | admin@colgate.edu | Colgate13 | true |

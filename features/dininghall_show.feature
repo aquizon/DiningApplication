@@ -5,9 +5,9 @@ Feature: Customer can click on a dining hall to view details
 
 Background: The dininghall has a few items
     Given these Dininghalls:
-        |name              |hours                                              |breakfast_hours|menu                             |
-        |"Frank Dining Hall" | "7:30am - 12:00am" | breakfast_hours: "7:00am - 10:00am" | "Current Menu"|
-        | "Coop" | "7:30am - 12:00am" | breakfast_hours: "7:00am - 10:00am" | "Current Menu"|
+        |name              |hours                                              |menu                             |
+        |"Frank Dining Hall" | "7:30am - 12:00am" | "Current Menu"|
+        | "Coop" | "7:30am - 12:00am" | "Current Menu"|
 
 Scenario: Click on a dininghall for more details
     Given I am on the index page
