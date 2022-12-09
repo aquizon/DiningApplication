@@ -9,7 +9,7 @@ class MenusController < ApplicationController
           dh_id = menu.dininghall_id
         end
         session[:dh_id] = params[:dh_id]
-        
+        session[:menu_id] = menu.id
         @menus = Dininghall.find(dh_id).menus
     end
 

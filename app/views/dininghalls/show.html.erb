@@ -2,10 +2,10 @@
 <h1 class="header"> <%= @dininghall.name %> </h1>
 </div>
 
-<h2> Hours of Operation: <%= @dininghall.hours %> </h2>
+<h2 class="center"> Hours of Operation: <%= @dininghall.hours %> </h2>
 <br>
 <% if user_signed_in? && current_user.admin %>
-<%= link_to "Update Dininghall", edit_dininghall_path(@dininghall)%>
+<%= link_to "Update Dininghall", edit_dininghall_path(@dininghall), :class=>"btn_sign"%>
 <% end %>
 <br>
 
