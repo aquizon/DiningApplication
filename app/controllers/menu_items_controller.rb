@@ -4,7 +4,7 @@ class MenuItemsController < ApplicationController
   def index
     
    allergens = get_dietary_restrictions
-   #@menu_items = MenuItem.sort_items_by(params[:menu_id], allergens)
+   
    @menu_items = MenuItem.all
   end
 
@@ -59,13 +59,13 @@ class MenuItemsController < ApplicationController
     end
   end
   
-  def get_previous_path
-    if request.referrer != Rails.root
-      return request.referrer 
-    end
-    return Rails.root
-  end
-  helper_method :get_previous_path
+ # def get_previous_path
+   # if request.referrer != Rails.root
+   #   return request.referrer 
+   # end
+   # return Rails.root
+  #end
+  #helper_method :get_previous_path
 
   private
 

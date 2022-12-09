@@ -24,16 +24,16 @@ class DininghallsController < ApplicationController
     end
   end
 
-  def edit
-    @dininghall = Dininghall.find params[:id]
-  end
+#  def edit
+ #   @dininghall = Dininghall.find params[:id]
+ # end
 
-  def update
-    @dininghall = Dininghall.find params[:id]
-    @dininghall.update(create_update_params)
-    flash[:notice] = "#{@dininghall.name} was successfully updated"
-    redirect_to dininghall_path(@dininghall)
-  end
+ # def update
+  #  @dininghall = Dininghall.find params[:id]
+ #   @dininghall.update(create_update_params)
+  #  flash[:notice] = "#{@dininghall.name} was successfully updated"
+  #  redirect_to dininghall_path(@dininghall)
+ # end
 
   private
 
