@@ -1,3 +1,4 @@
+
 class MenusController < ApplicationController
     def index
         if !params[:dh_id].nil?
@@ -10,7 +11,7 @@ class MenusController < ApplicationController
         @menus = Dininghall.find(dh_id).menus
     end
 
-    def show # this needs to be where filtering happens 
+    def show 
         if (Menu.where(id: params[:id]).empty?)
             flash[:notice] = "Menu does not exist"
             redirect_to menus_path
@@ -41,19 +42,20 @@ class MenusController < ApplicationController
     end
   
     def create
-      m = MenuItem.new(create_update_params)
+      m = Menu.new(create_update_params)
+      m.dininghall_id = session[:dininghall_id]
       if m.save
-        flash[:notice] = "Menu #{m.name} successfully created"
-        redirect_to menu_items_path
+        flash[:notice] = "Menu #{m.meal_of_day} successfully created"
+        redirect_to menu_path(m.id)
       else
-        flash[:warning] = 'Menu could not be entered'
-        redirect_to new_menu_item_path
+        flash[:alert] = 'Menu could not be entered'
+        redirect_to new_menu_path
       end
     end
   
-    def edit
-      @menu= Menu.find params[:id]
-    end
+   # def edit
+    #  @menu= Menu.find params[:id]
+   # end
   
     def destroy
       # load existing object again from URL param
@@ -71,6 +73,10 @@ class MenusController < ApplicationController
     end
 
     private
+
+    def create_update_params
+      params.require(:menu).permit(:meal_of_day, :begin_time, :end_time)
+    end
 
     def get_dietary_restrictions
       diets = ["dairy", "gluten", "soy", "nuts", "vegan", "vegetarian"]

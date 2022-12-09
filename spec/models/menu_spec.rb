@@ -6,7 +6,7 @@ RSpec.describe Menu, type: :model do
     @pancakes = MenuItem.create(name: "GF Pancakes", description: "Gluten free pancakes with butter and maple syrup", ingredients: "Rice Flour, Buttermilk, Oil, Maple Syrup, Butter", calories: 450, allergens: "Dairy", diet: "Vegetarian")
     @steak = MenuItem.create(name: "Steak", description: "Grilled Wagyu steak", ingredients: "Wagyu Beef, Salt, Black Pepper", calories: 350, allergens: "", diet: "")
     @vegs = MenuItem.create(name: "Vegetable Stir Fry", description: "Assorted vegetebles fried with rice", ingredients: "Carrots, Peas, Cabbage, Zucchini, Garlic, Onions, Rice", calories: 300, allergens: "Soy", diet: "Vegetarian, Vegan")
-    @frank = Dininghall.create!(name: "Frank Dining Hall", hours: "7:30am - 12:00am", menu: "Current Menu")
+    @frank = Dininghall.create!(name: "Frank Dining Hall", hours: "7:30am - 12:00am")
     @frank.menus.create!(meal_of_day: "Breakfast", begin_time: Time.new(2022, 12,3, 13, 30, 0, "+09:00"), end_time: Time.new(2022, 12, 3, 16, 30, 0, "+09:00"))
     @frank.menus.find_by(meal_of_day: "Breakfast").menu_items = [@chicken, @pancakes, @steak, @vegs]
   end 

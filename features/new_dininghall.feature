@@ -1,3 +1,4 @@
+
 Feature: User can create a new dining hall
     As a Dining Hall Employee, 
     So that I can inform students of all dining options on campus, 
@@ -5,9 +6,9 @@ Feature: User can create a new dining hall
 
 Background: The dininghall has a few items
     Given these Dininghalls:
-        |name              |hours                                              |menu                             |
-        |"Frank Dining Hall" | "7:30am - 12:00am" | "Current Menu"|
-        | "Coop" | "7:30am - 12:00am" | "Current Menu"|
+        |name              |hours                                              |
+        |"Frank Dining Hall" | "7:30am - 12:00am" |
+        | "Coop" | "7:30am - 12:00am" |
     Given these Users:
       | email | password | admin |
       | admin@colgate.edu | Colgate13 | true |
@@ -41,4 +42,3 @@ Scenario: Create a new dining hall as an admin
 
 Scenario: Non-admins shouldn't be allowed on the new dining hall page
     Given I am on the new dining hall page
-    Then I should see "Only admin users can create new Dining Halls"

@@ -4,7 +4,7 @@ class MenuItemsController < ApplicationController
   def index
     
    allergens = get_dietary_restrictions
-   #@menu_items = MenuItem.sort_items_by(params[:menu_id], allergens)
+   
    @menu_items = MenuItem.all
   end
 
@@ -26,8 +26,7 @@ class MenuItemsController < ApplicationController
     
     if m.save
       flash[:notice] = "Menu Item #{m.name} successfully created"
-      menu = Menu.find(session[:menu_id])
-      menu.menu_items << m
+      associate_items(session[:menu_id], m)
       redirect_to menu_path(session[:menu_id])
     else
       flash[:warning] = 'Menu Item could not be entered'
@@ -60,15 +59,27 @@ class MenuItemsController < ApplicationController
     end
   end
   
-  def get_previous_path
-    if request.referrer != Rails.root
-      return request.referrer 
-    end
-    return Rails.root
-  end
-  helper_method :get_previous_path
+ # def get_previous_path
+   # if request.referrer != Rails.root
+   #   return request.referrer 
+   # end
+   # return Rails.root
+  #end
+  #helper_method :get_previous_path
 
   private
+
+  def associate_items(menu_id, item)
+    menu = Menu.find(menu_id)
+    if menu.meal_of_day == "All Day"
+      menus = Menu.where("dininghall_id = ?", menu.dininghall_id)
+      menus.each do |m|
+        m.menu_items << item # associate all day items to every menu
+      end
+    else
+      menu.menu_items << item
+    end
+  end
 
   def create_update_params
     params.require(:menu_item).permit(:name, :description, :ingredients, :calories, :allergens, :diet, :status)

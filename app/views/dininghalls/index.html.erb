@@ -14,7 +14,8 @@
         <tr>
             <td> <%= link_to "#{dh.name}", dininghall_path(dh.id)%> </td>
             <td> <%= dh.hours%> </td>
-            <td> <%= link_to "View Menus", menus_path(:dh_id => dh.id), :class => "btn_menus"%> </td>
+            <td> <%= link_to "View Menus", menus_path(:dh_id => dh.id)%> </td>
+            <%session[:dininghall_id] = dh.id%>
         </tr>
         <%end%>
     </tbody>
