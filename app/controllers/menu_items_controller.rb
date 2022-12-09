@@ -23,7 +23,8 @@ class MenuItemsController < ApplicationController
 
   def create
     m = MenuItem.new(create_update_params)
-    
+    m.allergens = get_allergens
+    m.diet = get_diets
     if m.save
       flash[:notice] = "Menu Item #{m.name} successfully created"
       associate_items(session[:menu_id], m)
@@ -41,6 +42,10 @@ class MenuItemsController < ApplicationController
   def update
     @menu_item = MenuItem.find params[:id]
     @menu_item.update(create_update_params)
+    @menu_item.allergens = get_allergens
+    @menu_item.diet = get_diets
+    @menu_item.save
+    #debugger
     flash[:notice] = "#{@menu_item.name} was successfully updated"
     redirect_to menu_item_path(@menu_item)
   end
@@ -84,6 +89,36 @@ class MenuItemsController < ApplicationController
   def create_update_params
     params.require(:menu_item).permit(:name, :description, :ingredients, :calories, :allergens, :diet, :status)
   end
+
+  def get_allergens
+    allergens = ""
+    diets = ["dairy", "gluten", "soy", "nuts"]
+    diets.each do |diet|
+      if !params[diet].nil?
+        allergens += diet.capitalize + ", "
+      end
+    end
+    if allergens != "" 
+      allergens = allergens.slice(0..-3)
+    end
+    allergens
+  end
+
+  def get_diets
+    diets = ""
+    groups = ["vegan", "vegetarian"]
+    groups.each do |item|
+      if !params[item].nil?
+        diets += item.capitalize + ", "
+      end
+    end
+      if diets != ""
+        diets = diets.slice(0..-3)
+      end
+   diets
+  end
+
+
 
   def get_dietary_restrictions
     diets = ["dairy", "gluten", "soy", "nuts", "vegan", "vegetarian"]
