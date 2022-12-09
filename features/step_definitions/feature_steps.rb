@@ -122,16 +122,6 @@ When('I fill in the following:') do |table|
     m = Menu.find_by "meal_of_day = ?", string
     expect(page.current_path).to eq(menu_path(m.id))
   end
-  
-  Given('these Menus:') do |table|
-    # table is a Cucumber::MultilineArgument::DataTable
-    fake_dh = Dininghall.new
-    fake_dh.name = "Frank Dining Hall"
-    fake_dh.save!
-    table.hashes.each do |h|
-      fake_dh.menus.create!(h)
-    end
-  end
 
   Given('these Menus with {string}:') do |string, table|
     # table is a Cucumber::MultilineArgument::DataTable
