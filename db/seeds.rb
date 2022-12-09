@@ -21,10 +21,10 @@ steak = MenuItem.create!(name: "Steak", description: "Grilled Wagyu steak",  ing
 # debugger
 Dininghall.destroy_all
 
-frank = Dininghall.create!(name: "Frank Dining Hall", hours: "7:30am - 12:00am", menu: "Current Menu")
-coop = Dininghall.create!(name: "Coop", hours: "7:30am - 12:00am", menu: "Current Menu")
-donny = Dininghall.create!(name: "Donnovan's Pub", hours: "7:30am - 12:00am", menu: "Current Menu")
-chobe = Dininghall.create!(name: "Chobani", hours: "7:30am - 12:00am", menu: "Current Menu")
+frank = Dininghall.create!(name: "Frank Dining Hall", hours: "7:30am - 12:00am")
+coop = Dininghall.create!(name: "Coop", hours: "7:30am - 12:00am")
+donny = Dininghall.create!(name: "Donnovan's Pub", hours: "7:30am - 12:00am")
+chobe = Dininghall.create!(name: "Chobani", hours: "7:30am - 12:00am")
 
 User.create!(:email => 'admin@colgate.edu', :admin => true, :password => "Colgate13")
 
@@ -48,6 +48,9 @@ coop.menus.create!(meal_of_day: "All Day", begin_time: Time.new(2022, 12,3, 13, 
 frank.menus.find_by(meal_of_day: "Breakfast").menu_items = [pancakes, pbj]
 frank.menus.find_by(meal_of_day: "Lunch").menu_items = [pbj, chicken, pizza]
 frank.menus.find_by(meal_of_day: "Dinner").menu_items = [pbj, stirfry, chicken]
+frank_bfast_items = frank.menus.find_by(meal_of_day: "Breakfast").menu_items
+frank_lunch_items = frank.menus.find_by(meal_of_day: "Lunch").menu_items
+frank_dinner_items = frank.menus.find_by(meal_of_day: "Dinner").menu_items
 frank.menus.find_by(meal_of_day: "All Day").menu_items = [pbj]
 
 coop.menus.find_by(meal_of_day: "Breakfast").menu_items = [yogurt]

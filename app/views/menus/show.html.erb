@@ -38,7 +38,7 @@
 <br>
 
 <h2> Items Available </h2>
-<table class='table'>
+<table  class='table'>
     <thead>
         <tr>
             <th>Name</th>
@@ -51,7 +51,7 @@
         </tr>
     </thead>
     <tbody>
-        
+        <%session[:menu_id]=@menu.id%>
         <tr>
         <% if @menu_items.nil? %>
           <% @menu_items = @menu.menu_items%>
@@ -70,7 +70,6 @@
 </table>
 <% if user_signed_in? && current_user.admin %>
 <%= link_to "Update Menu", edit_menu_path(@menu), :class=>"btn_sign" %>
-
 <%= link_to "New Menu Item", new_menu_item_path, :class=>"btn_sign"%>
 <br>
 <%= button_to "Delete Menu", menu_path(@menu), method: :delete, :class=>"btn_cancel" %>
@@ -79,3 +78,4 @@
 <br>
 <%= link_to "Back", menus_path(:menu_id => @menu.id), :class=>"back" %>
 </body>
+

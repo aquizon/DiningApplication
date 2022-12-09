@@ -5,7 +5,9 @@
 
     <%= render 'form_template', item_form: item_form%>
     <br>
+    <%# item_form.hidden_field_tag "menu_id", session[:menu_id] %>
     <%= item_form.submit "Create Menu Item"%>
 <% end %>
 <br>
-<%= link_to "Back", request.referrer, :class =>"back" %>
+<%= link_to "Back", menu_path(session[:menu_id]), :class =>"back" %>
+
