@@ -1,7 +1,7 @@
 <%# New page that says filtered on + list filters 
     Just lists menu items that apply to filters 
     Clear button that sends you back to the menu show page %>
-<h1> Results Fitered by: 
+<h1 class="header"> Results Fitered by: 
   <%= @filters.join(", ")%>
 </h1>
 <% if @menu_items.empty? %>
@@ -36,4 +36,4 @@
 <%end%>
     </tbody>
 </table>
-<%= link_to "Clear Filters", menu_path(params[:menu])%>
+<%= link_to "Clear Filters", menu_path(params[:menu]), :class=>"btn_cancel"%>

@@ -1,5 +1,5 @@
 
-<h1> Menu Item </h1>
+<h1 class="header"> Menu Item </h1>
 
 <dl>
 <dt> Name </dt>
@@ -33,4 +33,4 @@
 <% end %>
 <br>
 
-<%= link_to "Back", menu_path(session[:menu_id]) unless session[:menu_id].nil? %>
+<%= link_to "Back", menu_path(session[:menu_id]) unless session[:menu_id].nil?, :class=>"back" %>

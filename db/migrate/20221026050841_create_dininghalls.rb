@@ -1,3 +1,4 @@
+
 class CreateDininghalls < ActiveRecord::Migration[7.0]
   def change
     create_table :dininghalls do |t|
@@ -7,3 +8,4 @@ class CreateDininghalls < ActiveRecord::Migration[7.0]
     end
   end
 end
+

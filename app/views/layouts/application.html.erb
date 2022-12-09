@@ -11,24 +11,27 @@
     <%= javascript_include_tag 'application' %>
   </head>
 
-  <body>
+  <body class="body">
+  <%# for a signed in user%>
       </div>
       <% if user_signed_in? %>
-        <div class="col-md-2 offset-md-6">
-          <%= button_to t("logout"), destroy_user_session_path, method: :delete, :class => "btn btn-warning btn-sm" %>
+        <div>
+          <%= button_to t("logout"), destroy_user_session_path, method: :delete, :class => "btn_cancel" %>
         </div>
+  <%# for a not signed in user%>
       <% else %>
-        <div class="col-md-2 offset-md-6">
-          <%= link_to "Sign in", new_user_session_path, :class => "btn btn-sm btn-primary" %>
-          <%= link_to "Sign up", new_user_registration_path, :class => "btn btn-sm btn-primary" %>
-          <%= button_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, :class => "btn btn-warning btn-sm", :method => :post %>
+        <div>
+          <%= link_to "Sign in", new_user_session_path, :class => "btn_sign" %>
+          <br>
+          <%= link_to "Sign up", new_user_registration_path, :class => "btn_sign" %>
+          <%= button_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, :class => "btn_sign", :method => :post %>
           </div>
       <% end %>
     </div>
-    <br/>
-    <div class="row">
+    <div>
+    <%# greeting%>
       <% if user_signed_in? %>
-        <div class="col-md-4 alert alert-light">
+        <div>
           <span>
             <%= "Welcome #{current_user.email}" %>
           </span>
@@ -38,17 +41,16 @@
         </div>
       <% end %>
     </div>
-    <br/>
     <% if flash[:notice] %>
-    <div class="row">
-      <div class="col-md-4 alert alert-primary notice">
+    <div>
+      <div>
         <%= "#{flash[:notice]}" %>
       </div>
     </div>
   <% end %>
   <% if flash[:alert] %>
-    <div class="row">
-      <div class="col-md-4 alert alert-warning alert">
+    <div>
+      <div>
         <%= "#{flash[:alert]}" %>
       </div>
     </div>

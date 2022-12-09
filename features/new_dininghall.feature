@@ -1,3 +1,4 @@
+
 Feature: User can create a new dining hall
     As a Dining Hall Employee, 
     So that I can inform students of all dining options on campus, 
@@ -41,4 +42,3 @@ Scenario: Create a new dining hall as an admin
 
 Scenario: Non-admins shouldn't be allowed on the new dining hall page
     Given I am on the new dining hall page
-    Then I should see "Only admin users can create new Dining Halls"
