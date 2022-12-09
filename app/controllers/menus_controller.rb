@@ -1,4 +1,5 @@
 
+
 class MenusController < ApplicationController
     before_action :admin_logged_in?, only: [:new, :create, :destroy]
     def index  
@@ -93,4 +94,5 @@ class MenusController < ApplicationController
       filter
     end
 end
+
 
