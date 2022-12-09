@@ -9,5 +9,5 @@
     <%= item_form.submit "Create Menu Item", :class=>"btn_sign"%>
 <% end %>
 <br>
-<%= link_to "Back", menu_path(session[:menu_id]), :class =>"back" %>
+<%= link_to "Back", (menu_path(session[:menu_id]) unless session[:menu_id].nil?), :class =>"back" %>
 

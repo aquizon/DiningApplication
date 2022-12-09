@@ -56,7 +56,29 @@
    /*border-radius: 12px;*/
    width: 13%;
    transition-duration: 0.4s;
+   margin-left: 20px;
+
  }
+
+ .btn_logout{
+  background-color: #640c13; /* Maroon */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  /*border-radius: 12px;*/
+  width: 13%;
+  transition-duration: 0.4s;
+}
+
+.btn_logout:hover{
+  background-color: white;
+  border: 2px solid #640c13;
+  color: #640c13;
+}
 
  .btn_menus{
    background-color: whitesmoke;
@@ -68,6 +90,7 @@
    border-radius: 13px;
    width: 30%;
    transition-duration: 0.4s;
+   margin-left: 20px;
  }
 
  .btn_menus:hover{
@@ -87,6 +110,8 @@
    /*border-radius: 12px;*/
    width: 13%;
    transition-duration: 0.4s;
+   margin-left: 20px;
+   margin-bottom: 10px;
  }
 
  .btn_sign:hover{
@@ -111,13 +136,14 @@
    height: 100px;
  }
  .back{
-   height: 200 px;
+   height: 200px;
    width: auto;
    background-color: #640c13;
    color: white;
    padding: 7px 7px;
    border-radius: 10%;
    transition-duration: 0.4s;
+   margin: 20px 20px 0;
  }
 
  .back:hover{
@@ -141,5 +167,25 @@
 
  .field_label{
    width: 100%;
+   font-weight: bold;
    font-style: oblique;
+ }
+
+ .select{
+  margin-left: 20px;
+ }
+
+ .filter{
+  background-color: white;
+  border-color: 2px solid #640c13;
+  color: #640c13;
+  border-radius: 13px;
+  padding: 7px 7px;
+  transition-duration: 0.4s;
+  margin: 20px 20px 0;
+ }
+
+ .filter:hover{
+  background-color: #640c13;
+  color: white;
  }

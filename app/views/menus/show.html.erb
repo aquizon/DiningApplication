@@ -1,5 +1,5 @@
-<h1> <%= Menu.get_dininghall_name(params[:id]) %> <%= @menu.meal_of_day %> Menu</h1>
-<h4> Hours: <%= @menu.get_menu_hours %> </h4>
+<h1 class="header"> <%= Menu.get_dininghall_name(params[:id]) %> <%= @menu.meal_of_day %> Menu</h1>
+<h4 class="center"> Hours: <%= @menu.get_menu_hours %> </h4>
     <tbody>
         <tr>
         <%# @menus.each do |m|%>
@@ -12,6 +12,7 @@
 <div>
   <%= form_with url: filter_path(@menu), local: true, method: :get do %> 
     <%# url needs to change here%>
+    <div class="select">
     <%= check_box_tag "dairy", "dairy"%>
     <%= label_tag "Dairy Free" %>
     <br>
@@ -29,9 +30,10 @@
     <br>
     <%= check_box_tag "vegan", "vegan"%>
     <%= label_tag "Vegan"%>
+    </div>
     <br>
     <%= hidden_field_tag "menu_id", "#{@menu.id}" %>
-    <%= submit_tag "Filter"%>
+    <%= submit_tag "Filter", :class=>"filter"%>
   <% end %>
 </div>
 <br>
@@ -71,8 +73,8 @@
 </table>
 <% end %>
 <% if user_signed_in? && current_user.admin %>
-<%= button_to "Delete Menu", menu_path(@menu), method: :delete %>
-<%= link_to "New Menu Item", new_menu_item_path %>
+<%= link_to "New Menu Item", new_menu_item_path, :class=>"btn_sign" %>
+<%= button_to "Delete Menu", menu_path(@menu), method: :delete, :class=>"btn_cancel" %>
 <% end %>
 <br>
-<%= link_to "Back", menus_path(:menu_id => @menu.id) %>
+<%= link_to "Back", menus_path(:menu_id => @menu.id), :class=>"back" %>

@@ -2,7 +2,6 @@
 <div>
 <h1 class="header">Menus</h1>
 <body class="body">
-<h4 class="center">Meal of Day: </h4>
 <%#debugger%> 
 <table>
     <tbody>
@@ -14,9 +13,9 @@
     </tbody>
 </table>
 <% if user_signed_in? && current_user.admin %>
-    <%= link_to "Create New Menu", new_menu_path %>
+    <%= link_to "Create New Menu", new_menu_path, :class=>"btn_sign" %>
 <% end %>
 <br>
-<%= link_to "Back", dininghalls_path %> <%# this will need to be linked to menu index page%>
+<%= link_to "Back", dininghalls_path, :class=>"back" %> <%# this will need to be linked to menu index page%>
 </body>
 </div>

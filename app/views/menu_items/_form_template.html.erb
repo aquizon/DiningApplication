@@ -16,21 +16,23 @@
 
     <br>
     <%# item_form.text_field :allergens, :class =>"rounded_input"%>
+    <div class="select">
     <%= item_form.label :allergens, :class=>"field_label"%>
     <%= check_box_tag "dairy", "dairy"%>
-    <%= label_tag "Contains Dairy" %>
+    <%= label_tag "Contains Dairy"%>
     <br>
     <%= check_box_tag "gluten", "gluten"%>
-    <%= label_tag "Contains Gluten" %>
+    <%= label_tag "Contains Gluten"%>
     <br>
     <%= check_box_tag "soy", "soy"%>
     <%= label_tag "Contains Soy" %>
     <br>
     <%= check_box_tag "nuts", "nuts"%>
     <%= label_tag "Contains Nuts" %>
-
+    </div>
     
-    <br>
+    
+    <div class="select">
     <%= item_form.label :diet, :class=>"field_label"%>
     <%= check_box_tag "vegan", "vegan"%>
     <%= label_tag "Vegan"%>
@@ -38,9 +40,10 @@
     <%= check_box_tag "vegetarian", "vegetarian"%>
     <%= label_tag "Vegetarian"%>
     <%# item_form.text_field :diet, :class =>"rounded_input"%>
-
-    <br>
+    </div>
+   
+    <div class="select">
     <%= item_form.label :status, :class=>"field_label"%>
-    <%= item_form.select :status, [["Available"], ["Unavailable"]] %>
-
+    <%= item_form.select :status, [["Available"], ["Unavailable"]], :class=>"dropdown-menu" %>
+    </div>
     <%# item_form.text_field :status, :class =>"rounded_input"%>
