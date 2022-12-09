@@ -48,6 +48,9 @@ coop.menus.create!(meal_of_day: "All Day", begin_time: Time.new(2022, 12,3, 13, 
 frank.menus.find_by(meal_of_day: "Breakfast").menu_items = [pancakes, pbj]
 frank.menus.find_by(meal_of_day: "Lunch").menu_items = [pbj, chicken, pizza]
 frank.menus.find_by(meal_of_day: "Dinner").menu_items = [pbj, stirfry, chicken]
+frank_bfast_items = frank.menus.find_by(meal_of_day: "Breakfast").menu_items
+frank_lunch_items = frank.menus.find_by(meal_of_day: "Lunch").menu_items
+frank_dinner_items = frank.menus.find_by(meal_of_day: "Dinner").menu_items
 frank.menus.find_by(meal_of_day: "All Day").menu_items = [pbj]
 
 coop.menus.find_by(meal_of_day: "Breakfast").menu_items = [yogurt]

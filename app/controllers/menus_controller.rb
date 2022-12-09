@@ -56,13 +56,6 @@ class MenusController < ApplicationController
       @menu= Menu.find params[:id]
     end
   
-    def update
-      @menu = Menu.find params[:id]
-      @menu.update(create_update_params) # Need to add this method 
-      flash[:notice] = "#{@menu.name} was successfully updated"
-      redirect_to menu_path(@menu)
-    end
-  
     def destroy
       # load existing object again from URL param
       menu = Menu.find(params[:id])
