@@ -14,13 +14,13 @@
         <tr>
             <td> <%= link_to "#{dh.name}", dininghall_path(dh.id)%> </td>
             <td> <%= dh.hours%> </td>
-            <td> <%= link_to "View Menus", menus_path(:dh_id => dh.id)%> </td>
+            <td> <%= link_to "View Menus", menus_path(:dh_id => dh.id), :class=>"btn_menus"%> </td>
             <%session[:dininghall_id] = dh.id%>
         </tr>
         <%end%>
     </tbody>
 </table>
 <% if user_signed_in? && current_user.admin %>
-    <%= link_to "New Dining Hall", new_dininghall_path%>
+    <%= link_to "New Dining Hall", new_dininghall_path, :class=>"btn_sign"%>
 <% end %>
 </body>

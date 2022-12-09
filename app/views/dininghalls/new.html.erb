@@ -5,7 +5,7 @@
 
     <%= render 'form_template', dininghall_form: dininghall_form%>
     <br>
-    <%= dininghall_form.submit "Create Dining Hall"%>
+    <%= dininghall_form.submit "Create Dining Hall", :class=>"btn_sign"%>
 <% end %>
 <br>
 <%= link_to "Back", dininghalls_path, :class=>"back" %>

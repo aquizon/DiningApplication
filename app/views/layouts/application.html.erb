@@ -28,19 +28,7 @@
           </div>
       <% end %>
     </div>
-    <div>
-    <%# greeting%>
-      <% if user_signed_in? %>
-        <div>
-          <span>
-            <%= "Welcome #{current_user.email}" %>
-          </span>
-          <% if current_user.admin %> 
-            <span>(admin user)</span>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
+  
     <% if flash[:notice] %>
     <div>
       <div>
