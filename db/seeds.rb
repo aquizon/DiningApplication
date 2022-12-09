@@ -48,12 +48,26 @@ coop.menus.create!(meal_of_day: "All Day", begin_time: Time.new(2022, 12,3, 13, 
 frank.menus.find_by(meal_of_day: "Breakfast").menu_items = [pancakes, pbj]
 frank.menus.find_by(meal_of_day: "Lunch").menu_items = [pbj, chicken, pizza]
 frank.menus.find_by(meal_of_day: "Dinner").menu_items = [pbj, stirfry, chicken]
-frank.menus.find_by(meal_of_day: "All Day").menu_items = [pbj]
+frank.menus.find_by(meal_of_day: "All Day").menu_items = []
+frank_bfast_items = frank.menus.find_by(meal_of_day: "Breakfast").menu_items
+frank_lunch_items = frank.menus.find_by(meal_of_day: "Lunch").menu_items
+frank_dinner_items = frank.menus.find_by(meal_of_day: "Dinner").menu_items
+frank_allday_items = frank.menus.find_by(meal_of_day: "All Day").menu_items
+frank_allday_items << frank_bfast_items
+frank_allday_items << frank_lunch_items
+frank_allday_items << frank_dinner_items
 
 coop.menus.find_by(meal_of_day: "Breakfast").menu_items = [yogurt]
 coop.menus.find_by(meal_of_day: "Lunch").menu_items = [pizza, yogurt]
 coop.menus.find_by(meal_of_day: "Dinner").menu_items = [garlicbread, steak, yogurt]
-coop.menus.find_by(meal_of_day: "All Day").menu_items = [yogurt]
+coop.menus.find_by(meal_of_day: "All Day").menu_items = []
+coop_bfast_items = coop.menus.find_by(meal_of_day: "Breakfast").menu_items
+coop_lunch_items = coop.menus.find_by(meal_of_day: "Lunch").menu_items
+coop_dinner_items = coop.menus.find_by(meal_of_day: "Dinner").menu_items
+coop_allday_items = coop.menus.find_by(meal_of_day: "All Day").menu_items
+coop_allday_items << coop_bfast_items
+coop_allday_items << coop_lunch_items
+coop_allday_items << coop_dinner_items
 
 
 
