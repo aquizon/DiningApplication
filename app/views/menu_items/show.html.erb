@@ -1,6 +1,6 @@
 
 <h1 class="header"> Menu Item </h1>
-
+<div class="select">
 <dl>
 <dt> Name </dt>
 <dd> <%= @menu_item.name %> </dd>
@@ -24,6 +24,8 @@
 <dt> Status </td>
 <dd> <%= @menu_item.status %> </dd>
 <br>
+</div>
+
 <% if user_signed_in? && current_user.admin %>
 <%= link_to "Update Menu Item", edit_menu_item_path(@menu_item), :class=>"btn_sign"%>
 <br>
