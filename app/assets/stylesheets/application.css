@@ -56,7 +56,29 @@
    /*border-radius: 12px;*/
    width: 13%;
    transition-duration: 0.4s;
+   margin-left: 20px;
+
  }
+
+ .btn_logout{
+  background-color: #640c13; /* Maroon */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  /*border-radius: 12px;*/
+  width: 13%;
+  transition-duration: 0.4s;
+}
+
+.btn_logout:hover{
+  background-color: white;
+  border: 2px solid #640c13;
+  color: #640c13;
+}
 
  .btn_menus{
    background-color: whitesmoke;
@@ -114,7 +136,7 @@
    height: 100px;
  }
  .back{
-   height: 200 px;
+   height: 200px;
    width: auto;
    background-color: #640c13;
    color: white;
@@ -149,73 +171,21 @@
    font-style: oblique;
  }
 
- /*This is copy and pasted code straight from w3 schools*/
- /* Customize the label (the container) */
-.container {
-  display: block;
-  position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
-  cursor: pointer;
-  font-size: 22px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
+ .select{
+  margin-left: 20px;
+ }
 
-/* Hide the browser's default checkbox */
-.container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-}
+ .filter{
+  background-color: white;
+  border-color: 2px solid #640c13;
+  color: #640c13;
+  border-radius: 13px;
+  padding: 7px 7px;
+  transition-duration: 0.4s;
+  margin: 20px 20px 0;
+ }
 
-/* Create a custom checkbox */
-.checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
-}
-
-/* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
-  background-color: #ccc;
-}
-
-/* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
-  background-color: #2196F3;
-}
-
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
-  content: "";
-  position: absolute;
-  display: none;
-}
-
-/* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
-  display: block;
-}
-
-/* Style the checkmark/indicator */
-.container .checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
-  border: solid white;
-  border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-/*end of pasted code*/
-/*https://www.w3schools.com/howto/howto_css_custom_checkbox.asp*/
+ .filter:hover{
+  background-color: #640c13;
+  color: white;
+ }

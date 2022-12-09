@@ -4,7 +4,7 @@
     <%= render 'form_template', item_form: item_form%>
 
     <br>
-    <%= item_form.submit "Update Menu Item" %>
+    <%= item_form.submit "Update Menu Item", :class=>"btn_sign" %>
 <% end %>
 <br>
 <%= link_to "Back", menu_item_path, :class=>"back" %>
