@@ -5,9 +5,9 @@ Feature: User can create a new dining hall
 
 Background: The dininghall has a few items
     Given these Dininghalls:
-        |name              |hours                                              |breakfast_hours|menu                             |
-        |"Frank Dining Hall" | "7:30am - 12:00am" | breakfast_hours: "7:00am - 10:00am" | "Current Menu"|
-        | "Coop" | "7:30am - 12:00am" | breakfast_hours: "7:00am - 10:00am" | "Current Menu"|
+        |name              |hours                                              |menu                             |
+        |"Frank Dining Hall" | "7:30am - 12:00am" | "Current Menu"|
+        | "Coop" | "7:30am - 12:00am" | "Current Menu"|
     Given these Users:
       | email | password | admin |
       | admin@colgate.edu | Colgate13 | true |
@@ -33,7 +33,6 @@ Scenario: Create a new dining hall as an admin
         | Field | Value | 
         | Name | Chobani | 
         | Hours | 9:00am - 10:00pm | 
-        | Breakfast hours | 9:00am - 11:00am | 
     And I press "Create Dining Hall" 
     Then I should be on the index page
     And I should see "Chobani"
