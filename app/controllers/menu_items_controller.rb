@@ -5,7 +5,7 @@ class MenuItemsController < ApplicationController
     
    allergens = get_dietary_restrictions
    #@menu_items = MenuItem.sort_items_by(params[:menu_id], allergens)
-   #@menu_items = MenuItem.all
+   @menu_items = MenuItem.all
   end
 
   def show
